@@ -44,7 +44,7 @@ export default function Contact() {
         eyebrow="B2B Enquiry / Contact"
         title={<>Let's talk about your <span className="italic text-saffron">next container.</span></>}
         intro="Share your requirement below and our export desk will revert with a formal quotation within one working day."
-        image="/catalog/export-supply.jpg"
+        image={`${import.meta.env.BASE_URL}export-supply.jpg`}
       />
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-16 grid lg:grid-cols-5 gap-10">

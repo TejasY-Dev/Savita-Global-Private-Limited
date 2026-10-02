@@ -11,7 +11,7 @@ export default function QualitySystem() {
         eyebrow="Quality System"
         title={<>Written specs. <span className="italic text-saffron">Verified batches.</span></>}
         intro="Quality at Savita Global is not a slogan — it is a document. Every product is manufactured against a signed spec sheet, and every batch carries a Certificate of Analysis before it leaves the gate."
-        image="/catalog/quality.jpg"
+        image={`${import.meta.env.BASE_URL}quality.jpg`}
       />
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-16">

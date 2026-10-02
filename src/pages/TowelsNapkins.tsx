@@ -21,7 +21,7 @@ export default function TowelsNapkins() {
         eyebrow="Towels & Napkins Exports"
         title={<>Woven in India, <span className="italic text-saffron-dark">plated in your kitchen.</span></>}
         intro="Our textile division supplies cotton kitchen towels, tea towels, napkins and aprons to retail chains, hospitality distributors and gifting brands — in neutral or private-label packaging."
-        image="/catalog/towels-napkins.jpg"
+        image={`${import.meta.env.BASE_URL}towels-napkins.jpg`}
         highlights={[
           { label: 'Fibre', value: '100% Cotton' },
           { label: 'MOQ', value: '0 pcs' },

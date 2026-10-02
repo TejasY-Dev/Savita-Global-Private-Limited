@@ -24,7 +24,7 @@ export default function DehydratedFruits() {
         eyebrow="Dehydrated Fruits"
         title={<>Tropical sweetness, <span className="italic text-saffron-dark">shelf-stable.</span></>}
         intro="India's mango, coconut and banana belts are among the finest in the world. We convert them into powders, dices and slices ready for breakfast cereal makers, bakery pre-mixes and premium retail."
-        image="/catalog/dehydrated-fruits.jpg"
+        image={`${import.meta.env.BASE_URL}dehydrated-fruits.jpg`}
         highlights={[
           { label: 'SKUs', value: '0+' },
           { label: 'Origin', value: '0' },

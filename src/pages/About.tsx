@@ -9,7 +9,7 @@ export default function About() {
         eyebrow="About Savita Global"
         title={<>Rooted in Solapur.<br/><span className="italic text-saffron">Reaching every port.</span></>}
         intro="Savita Global Private Limited is an Indian export house working across post-harvest management and food processing. We consult, process, market and execute turnkey supply projects for buyers around the world."
-        image="/catalog/hero-farm.jpg"
+        image={`${import.meta.env.BASE_URL}hero-farm.jpg`}
       />
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 grid lg:grid-cols-12 gap-12">
@@ -69,7 +69,7 @@ export default function About() {
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <img src="/catalog/quality.jpg" alt="" className="rounded-3xl w-full aspect-[4/3] object-cover" />
+          <img src={`${import.meta.env.BASE_URL}quality.jpg`} alt="" className="rounded-3xl w-full aspect-[4/3] object-cover" />
           <div>
             <p className="leaf-divider mb-5">Production → Export</p>
             <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold leading-tight">A rare combination — we can build the plant <span className="italic text-saffron-dark">and</span> supply from it.</h2>

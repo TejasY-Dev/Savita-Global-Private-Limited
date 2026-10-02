@@ -21,7 +21,7 @@ export default function ExportProcess() {
         eyebrow="Export Process"
         title={<>Ten steps.<br/><span className="italic text-saffron">Zero surprises.</span></>}
         intro="This is exactly what happens between your first enquiry and your container arriving at destination port — the same for every buyer, big or small."
-        image="/catalog/export-supply.jpg"
+        image={`${import.meta.env.BASE_URL}export-supply.jpg`}
       />
 
       <section className="max-w-4xl mx-auto px-5 lg:px-10 py-16">

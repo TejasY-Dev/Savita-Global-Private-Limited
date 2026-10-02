@@ -27,7 +27,7 @@ export default function DehydratedVegetables() {
         eyebrow="Dehydrated Vegetables"
         title={<>The workhorse of every <span className="italic text-saffron-dark">savoury kitchen.</span></>}
         intro="Our flagship division. Grown under contract with farmer groups across Maharashtra & Karnataka, then dehydrated on our own belt & tray dryers to preserve pungency, colour and rehydration ratio."
-        image="/catalog/dehydrated-vegetables.jpg"
+        image={`${import.meta.env.BASE_URL}dehydrated-vegetables.jpg`}
         highlights={[
           { label: 'SKUs', value: '0' },
           { label: 'Capacity', value: '0 MT' },

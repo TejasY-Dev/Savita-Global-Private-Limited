@@ -24,7 +24,7 @@ export default function BulkFoodIngredients() {
         eyebrow="Bulk Food Ingredients"
         title={<>Container loads of <span className="italic text-saffron-dark">Indian pantry staples.</span></>}
         intro="For food manufacturers, ethnic retail chains and government tenders — we supply spices, pulses, grains and sweeteners in FCL and LCL loads with full documentation."
-        image="/catalog/bulk-food-ingredients.jpg"
+        image={`${import.meta.env.BASE_URL}bulk-food-ingredients.jpg`}
         highlights={[
           { label: 'SKUs', value: '0+' },
           { label: 'Load', value: 'FCL / LCL' },

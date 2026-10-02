@@ -21,7 +21,7 @@ export default function ValueAddedSnacks() {
         eyebrow="Value-Added Snacks"
         title={<>Traditional Indian snacks, <span className="italic text-saffron-dark">export-ready.</span></>}
         intro="We co-manufacture and pack value-added Indian snacks for ethnic retail, HoReCa and airline catering — with export-compliant packaging and 9-month shelf life."
-        image="/catalog/value-added-snacks.jpg"
+        image={`${import.meta.env.BASE_URL}value-added-snacks.jpg`}
         highlights={[
           { label: 'Formats', value: 'Retail • Bulk' },
           { label: 'Shelf life', value: '9 months' },

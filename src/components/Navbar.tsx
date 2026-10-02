@@ -23,10 +23,10 @@ return (
 <div className="flex items-center justify-between h-16 lg:h-20">
 <Link to="/" className="flex items-center gap-3 group">
 <img
-src={`${import.meta.env.BASE_URL}logo.png`}
-alt="Savita Global Logo"
-className="h-10 w-auto lg:h-12 object-contain rounded-full mix-blend-multiply"
-/>
+              src={`${import.meta.env.BASE_URL}logo.png`}
+              alt="Savita Global Logo"
+              className="h-10 w-auto object-contain rounded-full"
+            />
 <span className="font-display text-xl lg:text-2xl font-semibold tracking-tight text-forest-deep">
 Savita <span className="italic text-saffron-dark">Global</span>
 </span>

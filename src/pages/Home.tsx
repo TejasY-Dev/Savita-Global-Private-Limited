@@ -3,12 +3,12 @@ import { ArrowRight, Ship, ShieldCheck, Leaf, Globe2, Boxes, Factory } from 'luc
 import CTA from '../components/CTA';
 
 const categories = [
-  { to: '/dehydrated-vegetables', label: 'Dehydrated Vegetables', img: '/catalog/dehydrated-vegetables.jpg', desc: 'Onion, garlic, tomato, spinach & more — flakes, powders, granules.' },
-  { to: '/dehydrated-fruits', label: 'Dehydrated Fruits', img: '/catalog/dehydrated-fruits.jpg', desc: 'Mango, banana, pineapple, coconut — slices, powders, dices.' },
-  { to: '/value-added-snacks', label: 'Value-Added Snacks', img: '/catalog/value-added-snacks.jpg', desc: 'Namkeen, roasted mixes, extruded snacks — co-pack ready.' },
-  { to: '/bulk-food-ingredients', label: 'Bulk Food Ingredients', img: '/catalog/bulk-food-ingredients.jpg', desc: 'Pulses, spices, grains, sugar & jaggery in bulk container loads.' },
-  { to: '/export-supply', label: 'Export Supply', img: '/catalog/export-supply.jpg', desc: 'End-to-end sourcing, palletisation & FCL / LCL logistics.' },
-  { to: '/towels-napkins', label: 'Towels & Napkins', img: '/catalog/towels-napkins.jpg', desc: 'Cotton kitchen towels, napkins, tea towels — private label ready.' },
+  { to: '/dehydrated-vegetables', label: 'Dehydrated Vegetables', img: `${import.meta.env.BASE_URL}dehydrated-vegetables.jpg`, desc: 'Onion, garlic, tomato, spinach & more — flakes, powders, granules.' },
+  { to: '/dehydrated-fruits', label: 'Dehydrated Fruits', img: `${import.meta.env.BASE_URL}dehydrated-fruits.jpg`, desc: 'Mango, banana, pineapple, coconut — slices, powders, dices.' },
+  { to: '/value-added-snacks', label: 'Value-Added Snacks', img: `${import.meta.env.BASE_URL}value-added-snacks.jpg`, desc: 'Namkeen, roasted mixes, extruded snacks — co-pack ready.' },
+  { to: '/bulk-food-ingredients', label: 'Bulk Food Ingredients', img: `${import.meta.env.BASE_URL}bulk-food-ingredients.jpg`, desc: 'Pulses, spices, grains, sugar & jaggery in bulk container loads.' },
+  { to: '/export-supply', label: 'Export Supply', img: `${import.meta.env.BASE_URL}export-supply.jpg`, desc: 'End-to-end sourcing, palletisation & FCL / LCL logistics.' },
+  { to: '/towels-napkins', label: 'Towels & Napkins', img: `${import.meta.env.BASE_URL}towels-napkins.jpg`, desc: 'Cotton kitchen towels, napkins, tea towels — private label ready.' },
 ];
 
 const stats = [
@@ -27,7 +27,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-src={`${import.meta.env.BASE_URL}catalog/hero-farm.jpg`}
+src={`${import.meta.env.BASE_URL}hero-farm.jpg`}
 alt="hero-farm"
 className="w-full h-full object-cover"
 />
@@ -147,8 +147,11 @@ className="w-full h-full object-cover"
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 relative">
-            <img src="/catalog/world-map.jpg" alt="Global reach" className="rounded-3xl w-full aspect-[4/3] object-cover" />
-            <div className="absolute -bottom-6 -right-6 bg-saffron text-forest-deep p-6 rounded-2xl shadow-xl max-w-[220px]">
+        <img
+  src={`${import.meta.env.BASE_URL}world-map.jpg`}
+  alt="Global reach"
+  className="rounded-3xl w-full aspect-[4/3] object-cover"
+/>            <div className="absolute -bottom-6 -right-6 bg-saffron text-forest-deep p-6 rounded-2xl shadow-xl max-w-[220px]">
               <Globe2 size={22} />
               <p className="font-display text-2xl font-bold mt-2 leading-tight">22 countries, one point of contact.</p>
             </div>
