@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-
+import { trackEvent } from '../analytics';
 const links = [
 { to: '/', label: 'Home' },
 { to: '/about', label: 'About' },
@@ -49,12 +49,17 @@ Savita <span className="italic text-saffron-dark">Global</span>
         ))}  
       </nav>
 
-      <Link  
-        to="/contact"  
-        className="hidden xl:inline-flex items-center gap-2 bg-forest text-cream px-5 py-2.5 rounded-full text-sm font-medium hover:bg-forest-dark transition-colors"  
-      >  
-        B2B Enquiry  
-      </Link>
+      <Link
+  to="/contact"
+  onClick={() =>
+    trackEvent('b2b_enquiry_click', {
+      element: 'navbar_desktop_b2b_enquiry',
+    })
+  }
+  className="hidden xl:inline-flex items-center gap-2 bg-forest text-cream px-5 py-2.5 rounded-full text-sm font-medium hover:bg-forest-dark transition-colors"
+>
+  B2B Enquiry
+</Link>
 
       <button className="xl:hidden p-2" onClick={() => setOpen(!open)} aria-label="Menu">  
         {open ? <X size={24} /> : <Menu size={24} />}  
@@ -78,13 +83,18 @@ Savita <span className="italic text-saffron-dark">Global</span>
             {l.label}  
           </NavLink>  
         ))}  
-        <Link  
-          to="/contact"  
-          onClick={() => setOpen(false)}  
-          className="mt-2 text-center bg-saffron text-forest-deep px-5 py-3 rounded-full font-semibold"  
-        >  
-          B2B Enquiry  
-        </Link>  
+        <Link
+  to="/contact"
+  onClick={() => {
+    trackEvent('b2b_enquiry_click', {
+      element: 'navbar_mobile_b2b_enquiry',
+    });
+    setOpen(false);
+  }}
+  className="mt-2 text-center bg-saffron text-forest-deep px-5 py-3 rounded-full font-semibold"
+>
+  B2B Enquiry
+</Link>
       </div>  
     )}  
   </div>  
