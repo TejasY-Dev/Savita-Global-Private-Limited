@@ -22,6 +22,7 @@ export default function AdminLogin() {
       email: email.trim(),
       password,
     });
+    
 
     setLoading(false);
 
@@ -32,6 +33,7 @@ export default function AdminLogin() {
 }
 
     navigate('/dashboard');
+    
   }
 
   return (

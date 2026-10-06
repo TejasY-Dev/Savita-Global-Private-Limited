@@ -1,4 +1,29 @@
+import { createClient } from '@supabase/supabase-js';
 import supabase from './db-client.js';
+
+const supabaseUrl = process.env.SUPABASE_URL;
+
+const supabaseAuthKey =
+  process.env.SUPABASE_PUBLISHABLE_KEY ||
+  process.env.SUPABASE_ANON_KEY ||
+  process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+  process.env.VITE_SUPABASE_ANON_KEY;
+
+const dashboardAdminEmail =
+  process.env.DASHBOARD_ADMIN_EMAIL?.trim().toLowerCase();
+
+if (!supabaseUrl) {
+  throw new Error('Missing SUPABASE_URL environment variable');
+}
+
+if (!supabaseAuthKey) {
+  throw new Error('Missing Supabase authentication key');
+}
+
+const supabaseAuth = createClient(
+  supabaseUrl,
+  supabaseAuthKey
+);
 
 const products = [
   'Dehydrated Vegetables',
@@ -38,10 +63,12 @@ function isValidPhone(phone) {
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
+
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, OPTIONS'
   );
+
   res.setHeader(
     'Access-Control-Allow-Headers',
     'Content-Type, Authorization'
@@ -52,9 +79,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    // --------------------------------
+    // ============================================
     // POST — Create new enquiry
-    // --------------------------------
+    // Public endpoint for website visitors
+    // ============================================
+
     if (req.method === 'POST') {
       const body = req.body || {};
 
@@ -116,17 +145,20 @@ export default async function handler(req, res) {
 
       // Product
       if (!products.includes(product)) {
-        errors.product = 'Please select a valid product division.';
+        errors.product =
+          'Please select a valid product division.';
       }
 
       // Incoterm
       if (!incoterms.includes(incoterm)) {
-        errors.incoterm = 'Please select a valid incoterm.';
+        errors.incoterm =
+          'Please select a valid incoterm.';
       }
 
       // Quantity — optional
       if (quantity && quantity.length > 100) {
-        errors.quantity = 'Quantity information is too long.';
+        errors.quantity =
+          'Quantity information is too long.';
       }
 
       // Message
@@ -141,7 +173,7 @@ export default async function handler(req, res) {
           'Message is too long. Please keep it below 5000 characters.';
       }
 
-      // Return all validation errors together
+      // Return validation errors
       if (Object.keys(errors).length > 0) {
         return res.status(400).json({
           error: 'Please correct the highlighted fields.',
@@ -149,9 +181,7 @@ export default async function handler(req, res) {
         });
       }
 
-      // --------------------------------
       // Insert validated enquiry
-      // --------------------------------
       const { data, error } = await supabase
         .from('enquiries')
         .insert({
@@ -175,10 +205,56 @@ export default async function handler(req, res) {
       return res.status(201).json(data);
     }
 
-    // --------------------------------
+    // ============================================
     // GET — Retrieve enquiries
-    // --------------------------------
+    // ADMIN ONLY
+    // ============================================
+
     if (req.method === 'GET') {
+      const authHeader = req.headers.authorization || '';
+
+      // No Authorization header
+      if (!authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({
+          error: 'Authentication required.',
+        });
+      }
+
+      const accessToken = authHeader
+        .slice(7)
+        .trim();
+
+      // Empty token
+      if (!accessToken) {
+        return res.status(401).json({
+          error: 'Authentication required.',
+        });
+      }
+
+      // Verify Supabase session
+      const {
+        data: { user },
+        error: authError,
+      } = await supabaseAuth.auth.getUser(accessToken);
+
+      if (authError || !user) {
+        return res.status(401).json({
+          error: 'Invalid or expired session.',
+        });
+      }
+
+      // Verify admin email
+      if (
+        !dashboardAdminEmail ||
+        user.email?.trim().toLowerCase() !==
+          dashboardAdminEmail
+      ) {
+        return res.status(403).json({
+          error: 'Access denied.',
+        });
+      }
+
+      // Fetch enquiries only after authentication
       const { data, error } = await supabase
         .from('enquiries')
         .select('*')
@@ -192,9 +268,10 @@ export default async function handler(req, res) {
       return res.status(200).json(data);
     }
 
-    // --------------------------------
+    // ============================================
     // Unsupported method
-    // --------------------------------
+    // ============================================
+
     return res.status(405).json({
       error: 'Method not allowed',
     });

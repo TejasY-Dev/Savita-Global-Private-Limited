@@ -1,13 +1,23 @@
 import { createClient } from '@supabase/supabase-js';
 import supabase from './db-client.js';
 
-const supabaseUrl =
-  process.env.SUPABASE_URL ||
-  process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  process.env.VITE_SUPABASE_URL;
+const supabaseUrl = process.env.SUPABASE_URL;
 
-VITE_SUPABASE_URL="https://tvylaoyfpgwitxoobgsm.supabase.co"
-VITE_SUPABASE_PUBLISHABLE_KEY="sb_publishable_jKzZqkdU2DkN6o5K1_u87A_RTQ3jox8"
+const supabaseAuthKey =
+  process.env.SUPABASE_PUBLISHABLE_KEY ||
+  process.env.SUPABASE_ANON_KEY ||
+  process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+  process.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl) {
+  throw new Error('SUPABASE_URL is not defined');
+}
+
+if (!supabaseAuthKey) {
+  throw new Error(
+    'SUPABASE_PUBLISHABLE_KEY or SUPABASE_ANON_KEY is not defined'
+  );
+}
 
 const supabaseAuth = createClient(
   supabaseUrl,
@@ -248,7 +258,6 @@ export default async function handler(req, res) {
       topPages,
       recentEnquiries,
     });
-
   } catch (error) {
     console.error('Dashboard API error:', error);
 
