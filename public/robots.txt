@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://savita-global-private-limited-ten.vercel.app/sitemap.xml
