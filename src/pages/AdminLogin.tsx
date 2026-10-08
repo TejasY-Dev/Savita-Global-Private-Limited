@@ -12,29 +12,32 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function handleLogin(event: FormEvent) {
-    event.preventDefault();
+async function handleLogin(event: FormEvent) {
+  event.preventDefault();
 
-    setError('');
-    setLoading(true);
+  setError('');
+  setLoading(true);
 
+  try {
     const { error } = await supabase.auth.signInWithPassword({
       email: email.trim(),
       password,
     });
-    
-
-    setLoading(false);
 
     if (error) {
-  console.error('Supabase login error:', error);
-  setError(error.message);
-  return;
-}
+      console.error('Supabase login error:', error);
+      setError(error.message);
+      return;
+    }
 
     navigate('/dashboard');
-    
+  } catch (err) {
+    console.error('Unexpected login error:', err);
+    setError('Unable to connect to the login service. Please try again.');
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6 py-16">
