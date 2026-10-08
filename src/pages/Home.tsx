@@ -28,7 +28,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <img
 src={`${import.meta.env.BASE_URL}hero-farm.jpg`}
-alt="hero-farm"
+alt="Savita Global Indian farms and agricultural sourcing"
 className="w-full h-full object-cover"
 />
   
@@ -39,12 +39,11 @@ className="w-full h-full object-cover"
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10 pt-24 pb-32 lg:pt-36 lg:pb-44">
           <p className="leaf-divider !text-saffron mb-6 rise">Savita Global Private Limited</p>
           <h1 className="font-display text-cream text-5xl sm:text-6xl lg:text-8xl font-semibold leading-[.98] max-w-5xl rise rise-2">
-            From Indian farms<br/>
-            <span className="italic text-saffron">to global markets.</span>
-          </h1>
+  Dehydrated Food &<br />
+  <span className="italic text-saffron">Indian Export Products.</span>
+</h1>
           <p className="mt-8 text-lg lg:text-xl text-cream/85 max-w-2xl leading-relaxed rise rise-3">
-            Sourcing, processing and exporting dehydrated foods, bulk ingredients, value-added snacks and textile allied goods — with the discipline of a factory and the warmth of a family firm.
-          </p>
+Savita Global Private Limited is an India-based supplier and exporter of dehydrated vegetables, dehydrated fruits, bulk food ingredients, value-added snacks, towels and napkins for domestic and international buyers.          </p>
 
           <div className="mt-10 flex flex-wrap gap-4 rise rise-4">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-saffron text-forest-deep px-7 py-3.5 rounded-full font-semibold hover:bg-cream transition-colors">
@@ -128,7 +127,11 @@ className="w-full h-full object-cover"
                 className="group relative overflow-hidden rounded-2xl bg-cream border border-forest/10 hover:border-forest/30 transition-all"
               >
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img src={c.img} alt={c.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+<img
+  src={c.img}
+  alt={`${c.label} supplier and exporter from India`}
+  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+/>
                 </div>
                 <div className="p-6">
                   <h3 className="font-display text-xl font-semibold text-forest-deep">{c.label}</h3>
@@ -149,7 +152,7 @@ className="w-full h-full object-cover"
           <div className="lg:col-span-6 relative">
         <img
   src={`${import.meta.env.BASE_URL}world-map.jpg`}
-  alt="Global reach"
+  alt="Savita Global export reach from India to international markets"
   className="rounded-3xl w-full aspect-[4/3] object-cover"
 />            <div className="absolute -bottom-6 -right-6 bg-saffron text-forest-deep p-6 rounded-2xl shadow-xl max-w-[220px]">
               <Globe2 size={22} />

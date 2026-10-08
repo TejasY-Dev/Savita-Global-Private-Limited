@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import PageHeader from '../components/PageHeader';
+
 import {
   Mail,
   Phone,
@@ -7,6 +9,7 @@ import {
   CheckCircle2,
   Loader2,
 } from 'lucide-react';
+
 import { trackEvent } from '../analytics';
 
 const products = [
@@ -56,16 +59,37 @@ const initialForm: FormState = {
 
 export default function Contact() {
   const [form, setForm] = useState<FormState>(initialForm);
-
   const [errors, setErrors] = useState<Errors>({});
-
   const [status, setStatus] = useState<
     'idle' | 'sending' | 'done' | 'error'
   >('idle');
-
   const [errorMsg, setErrorMsg] = useState('');
-
   const [enquiryStarted, setEnquiryStarted] = useState(false);
+
+  useEffect(() => {
+    document.title =
+      'Contact Savita Global | B2B Export Enquiries India';
+
+    const description =
+      'Contact Savita Global Private Limited for B2B and export enquiries for dehydrated vegetables, dehydrated fruits, food ingredients, snacks, towels and napkins from India.';
+
+    let meta = document.querySelector(
+      'meta[name="description"]'
+    ) as HTMLMetaElement | null;
+
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
+    }
+
+    meta.content = description;
+
+    return () => {
+      document.title =
+        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
+    };
+  }, []);
 
   const set =
     (key: keyof FormState) =>
@@ -149,23 +173,29 @@ export default function Contact() {
     }
 
     // Quantity - optional
-    if (form.quantity.trim() && form.quantity.trim().length < 2) {
+    if (
+      form.quantity.trim() &&
+      form.quantity.trim().length < 2
+    ) {
       newErrors.quantity = 'Please enter a valid quantity.';
     }
 
     // Product
     if (!products.includes(form.product)) {
-      newErrors.product = 'Please select a valid product division.';
+      newErrors.product =
+        'Please select a valid product division.';
     }
 
     // Incoterm
     if (!incoterms.includes(form.incoterm)) {
-      newErrors.incoterm = 'Please select a valid incoterm.';
+      newErrors.incoterm =
+        'Please select a valid incoterm.';
     }
 
     // Message
     if (!form.message.trim()) {
-      newErrors.message = 'Please tell us about your requirement.';
+      newErrors.message =
+        'Please tell us about your requirement.';
     } else if (form.message.trim().length < 20) {
       newErrors.message =
         'Please provide at least 20 characters about your requirement.';
@@ -211,7 +241,9 @@ export default function Contact() {
       if (!res.ok) {
         const j = await res
           .json()
-          .catch(() => ({ error: 'Failed to submit enquiry' }));
+          .catch(() => ({
+            error: 'Failed to submit enquiry',
+          }));
 
         throw new Error(
           j.error || 'Failed to submit enquiry'
@@ -242,16 +274,16 @@ export default function Contact() {
   return (
     <>
       <PageHeader
-        eyebrow="B2B Enquiry / Contact"
+        eyebrow="B2B Export Enquiries / Contact"
         title={
           <>
-            Let's talk about your{' '}
+            B2B Export Enquiries{' '}
             <span className="italic text-saffron">
-              next container.
+              from India.
             </span>
           </>
         }
-        intro="Share your requirement below and our export desk will revert with a formal quotation within one working day."
+        intro="Share your product requirement, specification, quantity and destination country. Our team will review your enquiry and discuss suitable sourcing, packaging and supply options."
         image={`${import.meta.env.BASE_URL}export-supply.jpg`}
       />
 
@@ -274,7 +306,8 @@ export default function Contact() {
                 />
 
                 <span>
-                  P no.43 Balaji Vilas, Akkalkot Road, Gandhi Nagar, Solapur, MH
+                  Plot no.43 Balaji Vilas, Akkalkot Road, Gandhi Nagar,
+                  Solapur, Maharashtra
                 </span>
               </li>
 
@@ -320,21 +353,25 @@ export default function Contact() {
 
           <div className="bg-cream-dark/50 border border-forest/10 rounded-2xl p-6">
             <p className="leaf-divider mb-3">
-              Response SLA
+              B2B Enquiry Response
             </p>
 
             <p className="text-sm text-ink/75 leading-relaxed">
-              Enquiries received before 15:00 IST are quoted the same working day. All other enquiries are answered by 12:00 IST next working day.
+              We review B2B enquiries based on product,
+              specification, quantity and destination, then respond
+              with the relevant supply and quotation details.
             </p>
           </div>
 
           <div className="bg-forest text-cream rounded-2xl p-6">
             <p className="leaf-divider !text-saffron mb-3">
-              Ports served
+              Export Logistics
             </p>
 
             <p className="text-sm text-cream/80 leading-relaxed">
-              JNPT Nhava Sheva • Mundra • Chennai • Kolkata • Cochin — with regular sailings to GCC, EU, ASEAN, USA and East Africa.
+              Share your preferred destination port and delivery
+              terms so we can discuss suitable export and shipping
+              options for your requirement.
             </p>
           </div>
         </div>
@@ -347,7 +384,6 @@ export default function Contact() {
             className="bg-cream border border-forest/15 rounded-3xl p-6 lg:p-10 shadow-sm space-y-5"
           >
             <div className="grid sm:grid-cols-2 gap-4">
-
               <Field
                 label="Company"
                 required
@@ -379,7 +415,7 @@ export default function Contact() {
               </Field>
 
               <Field
-                label="Email"
+                label="Business email"
                 required
                 error={errors.email}
               >
@@ -471,7 +507,7 @@ export default function Contact() {
             </div>
 
             <Field
-              label="Message"
+              label="Product Requirement / Message"
               required
               error={errors.message}
             >
@@ -481,7 +517,7 @@ export default function Contact() {
                 value={form.message}
                 onChange={set('message')}
                 className={inputClass(!!errors.message)}
-                placeholder="SKU list, specification details, target price, expected shipment window…"
+                placeholder="Tell us the product, specification, packaging requirement, target quantity and expected shipment window…"
               />
             </Field>
 
@@ -504,7 +540,8 @@ export default function Contact() {
                   </p>
 
                   <p className="text-sm text-ink/70">
-                    Our export desk will revert within one working day.
+                    Our team will review your requirement and respond
+                    with the relevant supply and quotation details.
                   </p>
                 </div>
               </div>

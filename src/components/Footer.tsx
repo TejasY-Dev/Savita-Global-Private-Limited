@@ -42,7 +42,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display text-lg text-saffron mb-4">Get in touch</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-3"><MapPin size={16} className="mt-0.5 text-saffron flex-shrink-0" /><span>P no.43 Balaji Vilas, Akkalkot Road, Gandhi Nagar, Solapur, <br/>Maharashtra 413005, India</span></li>
+            <li className="flex gap-3"><MapPin size={16} className="mt-0.5 text-saffron flex-shrink-0" /><span>Plot no.43 Balaji Vilas, Akkalkot Road, Gandhi Nagar, Solapur, <br/>Maharashtra 413005, India</span></li>
             <li className="flex gap-3"><Phone size={16} className="mt-0.5 text-saffron" /><a href="tel:+912179228500" className="hover:text-saffron">+91 9373569357</a></li>
             <li className="flex gap-3"><Mail size={16} className="mt-0.5 text-saffron" /><a href="mailto:exports@savitaglobal.in" className="hover:text-saffron">savitaglobalindia@gmail.com</a></li>
           </ul>
