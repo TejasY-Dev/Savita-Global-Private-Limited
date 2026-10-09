@@ -78,35 +78,73 @@ Savita Global Private Limited is an India-based supplier and exporter of dehydra
       </div> */}
 
       {/* PROMISE */}
-      <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-5">
-          <p className="leaf-divider mb-5">Our Promise</p>
-          <h2 className="font-display text-4xl lg:text-5xl font-semibold text-forest-deep leading-[1.05]">
-            The full agri-export stack — <span className="italic text-saffron-dark">under one roof.</span>
-          </h2>
-          <p className="mt-5 text-ink/70 leading-relaxed">
-            Backed by a decade of post-harvest management, Savita Global brings together consultancy, processing, marketing and turnkey execution. We plant our teams close to the field — so what leaves our factory is what our buyers specify, batch after batch.
-          </p>
-          <Link to="/about" className="inline-flex items-center gap-2 mt-6 text-forest-deep font-semibold border-b border-forest-deep pb-1 hover:text-saffron-dark hover:border-saffron-dark">
-            Read our story <ArrowRight size={16} />
-          </Link>
-        </div>
+<section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-start">
+  <div className="lg:col-span-5">
+    <p className="leaf-divider mb-5">Our Promise</p>
 
-        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
-          {[
-            { icon: Leaf, title: 'Farm-linked sourcing', text: 'Contract farming across Maharashtra, Karnataka & Gujarat for traceable raw material.' },
-            { icon: Factory, title: 'In-house processing', text: 'Belt & tray dryers, IQF lines and grinding — all under FSSAI supervision.' },
-            { icon: ShieldCheck, title: 'Assured quality', text: 'HACCP, ISO 22000 and buyer-specific spec sheets validated per batch.' },
-            { icon: Ship, title: 'Turnkey logistics', text: 'FCL, LCL and reefer shipments handled with APEDA / IEC compliance.' },
-          ].map(({ icon: Icon, title, text }) => (
-            <div key={title} className="bg-cream-dark/50 border border-forest/10 rounded-2xl p-6 hover:bg-cream-dark transition-colors">
-              <Icon className="text-saffron-dark" size={26} />
-              <h3 className="font-display text-xl text-forest-deep font-semibold mt-4">{title}</h3>
-              <p className="text-sm text-ink/70 mt-2 leading-relaxed">{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+    <h2 className="font-display text-4xl lg:text-5xl font-semibold text-forest-deep leading-[1.05]">
+      Indian products —{" "}
+      <span className="italic text-saffron-dark">
+        global possibilities.
+      </span>
+    </h2>
+
+    <p className="mt-5 text-ink/70 leading-relaxed">
+      Savita Global Private Limited connects domestic and international
+      buyers with Indian agricultural products, dehydrated food ingredients,
+      value-added snacks, towels and napkins. We focus on understanding
+      buyer specifications, coordinating suitable sourcing and packaging,
+      and building dependable supply relationships.
+    </p>
+
+    <Link
+      to="/about"
+      className="inline-flex items-center gap-2 mt-6 text-forest-deep font-semibold border-b border-forest-deep pb-1 hover:text-saffron-dark hover:border-saffron-dark"
+    >
+      Read our story <ArrowRight size={16} />
+    </Link>
+  </div>
+
+  <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+    {[
+      {
+        icon: Leaf,
+        title: "Indian Product Sourcing",
+        text: "Explore agricultural products and sourcing options from Indian suppliers based on buyer requirements."
+      },
+      {
+        icon: Factory,
+        title: "Product & Packaging Options",
+        text: "Discuss suitable product forms, specifications and food-grade packaging through sourcing and processing partners."
+      },
+      {
+        icon: ShieldCheck,
+        title: "Quality-Focused Supply",
+        text: "Work toward agreed product specifications, appropriate quality checks and relevant documentation for each order."
+      },
+      {
+        icon: Ship,
+        title: "Export Coordination",
+        text: "Discuss shipment planning, export documentation and logistics options according to product, destination and applicable requirements."
+      },
+    ].map(({ icon: Icon, title, text }) => (
+      <div
+        key={title}
+        className="bg-cream-dark/50 border border-forest/10 rounded-2xl p-6 hover:bg-cream-dark transition-colors"
+      >
+        <Icon className="text-saffron-dark" size={26} />
+
+        <h3 className="font-display text-xl text-forest-deep font-semibold mt-4">
+          {title}
+        </h3>
+
+        <p className="text-sm text-ink/70 mt-2 leading-relaxed">
+          {text}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* CATEGORIES CATALOGUE */}
       <section className="bg-cream-dark/40 py-20 lg:py-28">
