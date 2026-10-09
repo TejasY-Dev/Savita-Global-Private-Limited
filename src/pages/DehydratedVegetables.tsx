@@ -6,67 +6,67 @@ import CTA from '../components/CTA';
 const items = [
   {
     name: 'Red Onion Flakes',
-    form: 'Kibbled 5–10 mm',
-    moisture: '≤ 6%',
-    packing: '10 / 25 kg carton',
+    form: 'Illustrative: Kibbled 5–10 mm',
+    moisture: 'Indicative: ≤ 6%',
+    packing: 'Example: 10 / 25 kg carton',
   },
   {
     name: 'Onion Powder',
-    form: 'Powder 80–100 mesh',
-    moisture: '≤ 5%',
-    packing: '25 kg PE-lined bag',
+    form: 'Illustrative: Powder 80–100 mesh',
+    moisture: 'Indicative: ≤ 5%',
+    packing: 'Example: 25 kg PE-lined bag',
   },
   {
     name: 'Onion Granules',
-    form: 'Granules 20–40 mesh',
-    moisture: '≤ 6%',
-    packing: '25 kg carton',
+    form: 'Illustrative: Granules 20–40 mesh',
+    moisture: 'Indicative: ≤ 6%',
+    packing: 'Example: 25 kg carton',
   },
   {
     name: 'Tomato Powder',
-    form: 'Spray dried',
-    moisture: '≤ 4%',
-    packing: '20 kg carton',
+    form: 'Illustrative: Spray-dried powder',
+    moisture: 'Indicative: ≤ 4%',
+    packing: 'Example: 20 kg carton',
   },
   {
     name: 'Tomato Flakes',
-    form: 'Air dried',
-    moisture: '≤ 6%',
-    packing: '10 kg carton',
+    form: 'Illustrative: Air-dried flakes',
+    moisture: 'Indicative: ≤ 6%',
+    packing: 'Example: 10 kg carton',
   },
   {
     name: 'Spinach Powder',
-    form: 'Fine powder',
-    moisture: '≤ 6%',
-    packing: '20 kg carton',
+    form: 'Illustrative: Fine powder',
+    moisture: 'Indicative: ≤ 6%',
+    packing: 'Example: 20 kg carton',
   },
   {
     name: 'Green Chilli Flakes',
-    form: 'Crushed 3–5 mm',
-    moisture: '≤ 8%',
-    packing: '10 kg carton',
+    form: 'Illustrative: Crushed 3–5 mm',
+    moisture: 'Indicative: ≤ 8%',
+    packing: 'Example: 10 kg carton',
   },
   {
     name: 'Ginger Powder',
-    form: 'Powder 60 mesh',
-    moisture: '≤ 8%',
-    packing: '25 kg bag',
+    form: 'Illustrative: Powder, 60 mesh',
+    moisture: 'Indicative: ≤ 8%',
+    packing: 'Example: 25 kg bag',
   },
   {
     name: 'Beetroot Powder',
-    form: 'Fine powder',
-    moisture: '≤ 6%',
-    packing: '20 kg carton',
+    form: 'Illustrative: Fine powder',
+    moisture: 'Indicative: ≤ 6%',
+    packing: 'Example: 20 kg carton',
   },
 ];
 
 export default function DehydratedVegetables() {
   useEffect(() => {
     document.title =
-      'Dehydrated Vegetables Exporter India | Savita Global';
+      'Dehydrated Vegetables from India | Savita Global';
 
     const description =
-      'Savita Global supplies and exports dehydrated vegetables from India including onion flakes, onion powder, onion granules, tomato powder, tomato flakes, spinach powder, green chilli flakes, ginger powder and beetroot powder.';
+      'Explore dehydrated vegetable sourcing options from India with Savita Global Private Limited. Enquire about onion flakes, onion powder, granules, tomato products and other vegetable ingredients. Specifications and availability are subject to supplier confirmation.';
 
     let meta = document.querySelector(
       'meta[name="description"]'
@@ -78,90 +78,134 @@ export default function DehydratedVegetables() {
       document.head.appendChild(meta);
     }
 
+    const previousDescription = meta.content;
     meta.content = description;
 
     return () => {
       document.title =
         'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
+
+      if (meta) {
+        meta.content = previousDescription;
+      }
     };
   }, []);
 
   return (
     <>
       <CategoryHero
-  eyebrow="Dehydrated Vegetables Exporter from India"
-  title={
-    <>
-      Dehydrated Vegetables
-      <span className="italic text-saffron-dark"> from India.</span>
-    </>
-  }
-  intro="Savita Global Private Limited supplies and exports dehydrated vegetables and vegetable ingredients for food manufacturers, seasoning companies, HoReCa distributors and international buyers. Products can be supplied in flakes, granules, powders and other buyer-specific specifications."
-  image={`${import.meta.env.BASE_URL}dehydrated-vegetables.jpg`}
-  highlights={[
-    { label: 'Product Forms', value: 'Flakes' },
-    { label: 'Custom Specs', value: 'Yes' },
-    { label: 'Buyer MOQ', value: 'Enquiry' },
-  ]}
-/>
+        eyebrow="Dehydrated Vegetable Sourcing from India"
+        title={
+          <>
+            Dehydrated Vegetables
+            <span className="italic text-saffron-dark">
+              {' '}from India.
+            </span>
+          </>
+        }
+        intro="Savita Global Private Limited helps domestic and international buyers explore sourcing options for dehydrated vegetables and vegetable ingredients from India. Our product range includes onion flakes, powders and granules, tomato products and other vegetable ingredients. Product availability, specifications, origin and packaging are confirmed against buyer requirements and supplier capabilities."
+        image={`${import.meta.env.BASE_URL}dehydrated-vegetables.jpg`}
+        highlights={[
+          { label: 'Product Forms', value: 'Flakes & Powders' },
+          { label: 'Specifications', value: 'By Enquiry' },
+          { label: 'Minimum Order', value: 'Confirm with Us' },
+        ]}
+      />
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-16">
         <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
           <div>
-            <p className="leaf-divider mb-3">Catalogue</p>
-<h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">
-  Dehydrated Vegetable Products & Ingredients
-</h2>          </div>
-<p className="text-sm text-mute max-w-sm">
-  Explore our range of dehydrated vegetables, flakes, granules and powders.
-  Specifications, mesh size, moisture level and packaging can be customized
-  according to buyer requirements.
-</p>
+            <p className="leaf-divider mb-3">Product Catalogue</p>
+
+            <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">
+              Dehydrated Vegetable Products & Ingredients
+            </h2>
+          </div>
+
+          <p className="text-sm text-mute max-w-sm">
+            Explore product types and example specifications.
+            Final product forms, moisture limits, mesh sizes,
+            packaging and order quantities depend on the selected
+            supplier and confirmed product specification.
+          </p>
         </div>
+
         <CatalogGrid items={items} />
+
+        <p className="mt-6 text-sm text-ink/65 leading-relaxed border border-forest/10 rounded-xl p-4">
+          <strong>Important:</strong> Product specifications and
+          packaging shown in this catalogue are illustrative only,
+          not confirmed stock or guaranteed supply specifications.
+          Availability, country of origin, test reports, minimum
+          order quantities and final specifications must be verified
+          with the supplier before quotation or order confirmation.
+        </p>
       </section>
 
       <section className="bg-cream-dark/40 py-16">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 grid lg:grid-cols-2 gap-10">
           <div>
-            <p className="leaf-divider mb-3">How we process</p>
-<h3 className="font-display text-2xl text-forest-deep font-semibold">
-  Controlled processing for consistent dehydrated vegetables.
-</h3>
+            <p className="leaf-divider mb-3">
+              Our Sourcing & Supply Process
+            </p>
+
+            <h3 className="font-display text-2xl text-forest-deep font-semibold">
+              Clear requirements. Suitable sourcing. Transparent coordination.
+            </h3>
+
             <ol className="mt-6 space-y-4 text-sm text-ink/75">
               {[
-  'Raw material sourcing and quality selection',
-  'Cleaning, sorting and preparation',
-  'Slicing, dicing, kibbling or powder processing',
-  'Controlled dehydration according to product requirements',
-  'Sieving and grading to buyer specifications',
-  'Quality checks and specification verification',
-  'Food-grade packing and dispatch preparation',
-].map((s, i) => (
-                <li key={i} className="flex gap-4 items-start">
-                  <span className="font-display text-saffron-dark font-semibold w-6">{String(i+1).padStart(2,'0')}</span>
-                  <span>{s}</span>
+                'Understand the buyer’s product, quantity and destination requirements',
+                'Explore suitable suppliers and product availability',
+                'Confirm product form and technical specifications with the supplier',
+                'Discuss samples and evaluation requirements, where available',
+                'Confirm packaging, labelling and documentation requirements',
+                'Review applicable quality documents and test reports, where available',
+                'Coordinate order and dispatch arrangements subject to agreement',
+              ].map((step, index) => (
+                <li key={step} className="flex gap-4 items-start">
+                  <span className="font-display text-saffron-dark font-semibold w-6 shrink-0">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <span>{step}</span>
                 </li>
               ))}
             </ol>
+
+            <p className="mt-5 text-xs text-ink/60 leading-relaxed">
+              Processing, testing, certification and logistics are
+              arranged according to the supplier, product, order
+              agreement and applicable requirements.
+            </p>
           </div>
+
           <div>
-            <p className="leaf-divider mb-3">Typical buyers</p>
-<h3 className="font-display text-2xl text-forest-deep font-semibold">
-  Dehydrated Vegetable Buyers & Applications
-</h3>
+            <p className="leaf-divider mb-3">
+              Typical Applications
+            </p>
+
+            <h3 className="font-display text-2xl text-forest-deep font-semibold">
+              Who Uses Dehydrated Vegetable Ingredients?
+            </h3>
+
             <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
               {[
-  'Instant noodle manufacturers',
-  'Ready meal manufacturers',
-  'Soup and sauce manufacturers',
-  'Seasoning and spice companies',
-  'Food ingredient distributors',
-  'HoReCa food distributors',
-  'Food processing companies',
-  'International food importers',
-].map((b) => (
-                <li key={b} className="bg-cream border border-forest/10 rounded-lg px-3 py-2">{b}</li>
+                'Instant noodle manufacturers',
+                'Ready meal manufacturers',
+                'Soup and sauce manufacturers',
+                'Seasoning and spice companies',
+                'Food ingredient distributors',
+                'HoReCa suppliers',
+                'Food processing businesses',
+                'International food importers',
+              ].map((buyer) => (
+                <li
+                  key={buyer}
+                  className="bg-cream border border-forest/10 rounded-lg px-3 py-2"
+                >
+                  {buyer}
+                </li>
               ))}
             </ul>
           </div>
