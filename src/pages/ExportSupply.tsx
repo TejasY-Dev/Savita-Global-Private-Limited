@@ -64,7 +64,7 @@ export default function ExportSupply() {
           </>
         }
         intro="Savita Global helps international buyers coordinate sourcing, packaging and shipment planning for selected Indian products. Every enquiry is reviewed according to product availability, buyer requirements, destination regulations and agreed order terms."
-        image="public/export-supply.jpg"
+        image={`${import.meta.env.BASE_URL}export-supply.jpg`}
         highlights={[
           { label: 'Service', value: 'Sourcing & Coordination' },
           { label: 'Trade Terms', value: 'As Agreed' },
