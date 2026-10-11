@@ -1,3 +1,4 @@
+import AdUnit from '../components/AdUnit';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -54,6 +55,7 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden">
+        <AdUnit />
         <div className="absolute inset-0">
           <img
             src={`${import.meta.env.BASE_URL}hero-farm.jpg`}
