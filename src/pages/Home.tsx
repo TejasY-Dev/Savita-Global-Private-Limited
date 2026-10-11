@@ -55,7 +55,6 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <AdUnit />
         <div className="absolute inset-0">
           <img
             src={`${import.meta.env.BASE_URL}hero-farm.jpg`}
@@ -73,7 +72,7 @@ export default function Home() {
           </p>
 
           <h1 className="font-display text-cream text-5xl sm:text-6xl lg:text-8xl font-semibold leading-[.98] max-w-5xl rise rise-2">
-            Dehydrated Food &
+            Dehydrated Food &amp;
             <br />
             <span className="italic text-saffron">
               Indian Export Products.
@@ -106,6 +105,17 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* ADSENSE DISPLAY AD */}
+      <section
+        aria-label="Advertisement"
+        className="max-w-5xl mx-auto px-5 py-6"
+      >
+        <p className="text-xs text-ink/50 text-center mb-2">
+          Advertisement
+        </p>
+        <AdUnit />
       </section>
 
       {/* PROMISE */}
