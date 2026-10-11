@@ -17,7 +17,6 @@ const products = [
   'Dehydrated Fruits',
   'Value-Added Snacks',
   'Bulk Food Ingredients',
-  'Export Supply Services',
   'Towels & Napkins',
   'Other / Mixed',
 ];
