@@ -1,31 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Character encoding and responsive layout -->
     <meta charset="UTF-8" />
-
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
     <title>
-      Savita Global Private Limited | Dehydrated Food & Export Supplier India
+      Savita Global Private Limited | Quality from India. Trusted Worldwide.
     </title>
 
     <meta
       name="description"
-      content="Savita Global Private Limited is an India-based supplier and exporter of dehydrated vegetables, dehydrated fruits, food ingredients, snacks, towels and napkins. Quality from India. Trusted Worldwide."
+      content="Savita Global Private Limited supplies dehydrated vegetables, dehydrated fruits, value-added snacks, bulk food ingredients, towels and napkins from India to global markets."
     />
 
+    <meta name="robots" content="index, follow" />
     <meta name="author" content="Savita Global Private Limited" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large"
-    />
-
-    <!-- Canonical -->
+    <!-- Canonical URL -->
     <link
       rel="canonical"
       href="https://savita-global-private-limited-ten.vercel.app/"
@@ -35,86 +29,41 @@
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
 
-    <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
-    <meta property="og:type" content="website" />
-
+    <!-- Open Graph: social sharing -->
     <meta
       property="og:title"
-      content="Savita Global Private Limited | Quality from India. Trusted Worldwide."
+      content="Savita Global Private Limited"
     />
-
     <meta
       property="og:description"
-      content="India-based supplier and exporter of dehydrated vegetables, dehydrated fruits, food ingredients, snacks, towels and napkins."
+      content="Quality from India. Trusted Worldwide. Explore our dehydrated food products, bulk ingredients, towels and napkins."
     />
-
     <meta
       property="og:url"
       content="https://savita-global-private-limited-ten.vercel.app/"
     />
-
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Savita Global Private Limited" />
     <meta
       property="og:image"
       content="https://savita-global-private-limited-ten.vercel.app/logo.png"
     />
 
-    <meta
-      property="og:site_name"
-      content="Savita Global Private Limited"
-    />
+    <!-- Google Analytics: replace the ID in both places -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVZVT5PBF5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <meta
-      name="twitter:title"
-      content="Savita Global Private Limited | Quality from India. Trusted Worldwide."
-    />
-
-    <meta
-      name="twitter:description"
-      content="Supplier and exporter of dehydrated food products, food ingredients, towels and napkins from India."
-    />
-
-    <meta
-      name="twitter:image"
-      content="https://savita-global-private-limited-ten.vercel.app/logo.png"
-    />
-
-    <!-- Google / Search Engine Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://savita-global-private-limited-ten.vercel.app/#organization",
-        "name": "Savita Global Private Limited",
-        "url": "https://savita-global-private-limited-ten.vercel.app/",
-        "logo": "https://savita-global-private-limited-ten.vercel.app/logo.png",
-        "description": "India-based supplier and exporter of dehydrated vegetables, dehydrated fruits, food ingredients, snacks, towels and napkins.",
-        "slogan": "Quality from India. Trusted Worldwide.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Solapur",
-          "addressRegion": "Maharashtra",
-          "postalCode": "413005",
-          "addressCountry": "IN"
-        },
-        "areaServed": "Worldwide",
-        "knowsAbout": [
-          "Dehydrated Vegetables",
-          "Dehydrated Fruits",
-          "Food Ingredients",
-          "Food Export",
-          "Towels",
-          "Napkins"
-        ]
-      }
-    </script>
+  gtag('config', 'G-YVZVT5PBF5');
+</script>
   </head>
 
   <body>
     <div id="root"></div>
 
+    <!-- React + Vite application entry point -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
