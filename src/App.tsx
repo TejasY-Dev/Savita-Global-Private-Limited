@@ -58,7 +58,7 @@ export default function App() {
             path="/bulk-food-ingredients"
             element={<BulkFoodIngredients />}
           />
-          {/* <Route path="/export-supply" element={<ExportSupply />} /> */}
+          <Route path="/export-supply" element={<ExportSupply />} />
           <Route path="/towels-napkins" element={<TowelsNapkins />} />
           <Route path="/quality-system" element={<QualitySystem />} />
           <Route path="/export-process" element={<ExportProcess />} />
