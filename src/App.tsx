@@ -18,6 +18,7 @@ import ExportProcess from './pages/ExportProcess';
 import Contact from './pages/Contact';
 import AdminLogin from './pages/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute';
+import AccountsDashboard from './pages/AccountsDashboard';
 
 function PageViewTracker() {
   const location = useLocation();
@@ -73,6 +74,11 @@ export default function App() {
     </ProtectedRoute>
   }
 />
+<Route
+  path="/accounts"
+  element={<AccountsDashboard />}
+/>
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
