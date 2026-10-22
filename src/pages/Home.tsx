@@ -107,7 +107,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ADSENSE DISPLAY AD */}
+      {/* ADSENSE DISPLAY AD
       <section
         aria-label="Advertisement"
         className="max-w-5xl mx-auto px-5 py-6"
@@ -116,7 +116,7 @@ export default function Home() {
           Advertisement
         </p>
         <AdUnit />
-      </section>
+      </section> */}
 
       {/* PROMISE */}
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-start">
