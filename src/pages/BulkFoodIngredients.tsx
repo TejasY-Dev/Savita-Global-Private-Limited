@@ -6,8 +6,8 @@ const items = [
   {
     name: 'Turmeric Fingers / Powder',
     image: `${import.meta.env.BASE_URL}products/ingredients/turmeric-powder.jpg`,
-    imageAlt: 'Turmeric fingers and turmeric powder',
-    form: 'Example: Whole turmeric fingers or powder',
+    imageAlt: 'Illustration of turmeric powder',
+    form: 'Example: Whole fingers or powder',
     moisture: 'Indicative: ≤ 10%',
     packing: 'Example: 25 / 50 kg bags',
   },
