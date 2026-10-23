@@ -3,13 +3,14 @@ import { ArrowRight } from 'lucide-react';
 
 interface Props {
   eyebrow: string;
+  imageAlt?: string;
   title: React.ReactNode;
   intro: string;
   image: string;
   highlights: { label: string; value: string }[];
 }
 
-export default function CategoryHero({ eyebrow, title, intro, image, highlights }: Props) {
+export default function CategoryHero({ eyebrow, imageAlt, title, intro, image, highlights }: Props) {
   return (
     <section className="relative bg-cream">
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-14 lg:py-20 grid lg:grid-cols-12 gap-10 items-center">
@@ -41,7 +42,7 @@ export default function CategoryHero({ eyebrow, title, intro, image, highlights 
           <div className="relative">
             <div className="absolute -inset-3 bg-saffron/20 rounded-3xl -rotate-2" />
             <div className="absolute -inset-3 bg-forest/10 rounded-3xl rotate-1" />
-            <img src={image} alt={eyebrow} className="relative rounded-3xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <img src={image} alt={imageAlt || `${eyebrow} illustrative category image`} width="1200" height="900" decoding="async" fetchPriority="high" className="relative rounded-3xl w-full aspect-[4/3] object-cover shadow-xl" />
             <div className="absolute -bottom-5 -left-5 bg-cream border border-forest/10 rounded-2xl px-4 py-3 shadow-lg">
               <p className="text-[10px] uppercase tracking-widest text-mute font-semibold">Origin</p>
               <p className="font-display text-forest-deep font-semibold">Made in India 🇮🇳</p>

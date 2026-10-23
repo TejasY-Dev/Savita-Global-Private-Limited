@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import CategoryHero from '../components/CategoryHero';
 import CatalogGrid from '../components/CatalogGrid';
 import CTA from '../components/CTA';
@@ -6,54 +5,72 @@ import CTA from '../components/CTA';
 const items = [
   {
     name: 'Potato Crisps & Slices',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/potato-crisps.jpg`,
+    imageAlt: 'Illustration of potato crisps',
     form: 'Example: Thin-cut potato slices',
     packing: 'Bulk or retail format by enquiry',
     note: 'Cut thickness, processing method and seasoning to be confirmed',
   },
   {
     name: 'Okra / Bhindi Crisps',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/okra-crisps.jpg`,
+    imageAlt: 'Illustration of okra or bhindi crisps',
     form: 'Example: Sliced okra snack',
     packing: 'By enquiry',
     note: 'Product format, processing method and availability to be confirmed',
   },
   {
     name: 'Banana Chips',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/banana-chips.jpg`,
+    imageAlt: 'Illustration of banana chips',
     form: 'Example: Plain or seasoned banana slices',
     packing: 'Bulk or retail format by enquiry',
     note: 'Variety, thickness, processing and seasoning to be confirmed',
   },
   {
     name: 'Jackfruit Chips',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/jackfruit-chips.jpg`,
+    imageAlt: 'Illustration of jackfruit chips',
     form: 'Example: Thin-cut jackfruit pieces',
     packing: 'By enquiry',
     note: 'Raw material, processing method and product specifications to be confirmed',
   },
   {
     name: 'Sweet Potato Crisps',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/sweet-potato-crisps.jpg`,
+    imageAlt: 'Illustration of sweet potato crisps',
     form: 'Example: Sliced sweet potato',
     packing: 'By enquiry',
     note: 'Cut, texture, processing method and seasoning to be confirmed',
   },
   {
     name: 'Beetroot Crisps',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/beetroot-crisps.jpg`,
+    imageAlt: 'Illustration of beetroot crisps',
     form: 'Example: Beetroot slices',
     packing: 'By enquiry',
     note: 'Colour, texture, processing and pack format to be confirmed',
   },
   {
     name: 'Mixed Vegetable Snacks',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/mixed-vegetable-snacks.jpg`,
+    imageAlt: 'Illustration of a mixed vegetable snack assortment',
     form: 'Example: Selected vegetable pieces',
     packing: 'By enquiry',
     note: 'Vegetable combination and processing specifications to be confirmed',
   },
   {
     name: 'Fruit Chips',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/fruit-chips.jpg`,
+    imageAlt: 'Illustration of mixed fruit chips',
     form: 'Example: Selected fruit slices',
     packing: 'By enquiry',
     note: 'Fruit variety, cut, processing and packaging to be confirmed',
   },
   {
     name: 'Seasoned Snack Products',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/seasoned-snacks.jpg`,
+    imageAlt: 'Illustration of seasoned snack pieces',
     form: 'Example: Plain or flavoured snack formats',
     packing: 'By enquiry',
     note: 'Ingredients, flavour profile and product availability to be confirmed',
@@ -61,45 +78,11 @@ const items = [
 ];
 
 export default function ValueAddedSnacks() {
-  useEffect(() => {
-    const previousTitle = document.title;
-
-    const description =
-      'Explore sourcing options for Indian value-added snacks, potato crisps, vegetable snacks, fruit chips and selected snack products with Savita Global Private Limited. Product formats, ingredients, specifications, packaging and availability are subject to supplier confirmation.';
-
-    const existingMeta = document.querySelector(
-      'meta[name="description"]',
-    ) as HTMLMetaElement | null;
-
-    const previousDescription = existingMeta?.content;
-
-    const meta = existingMeta ?? document.createElement('meta');
-
-    if (!existingMeta) {
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    document.title =
-      'Indian Snacks & Value-Added Food Products | Savita Global';
-
-    meta.content = description;
-
-    return () => {
-      document.title = previousTitle;
-
-      if (existingMeta) {
-        meta.content = previousDescription ?? '';
-      } else {
-        meta.remove();
-      }
-    };
-  }, []);
-
-  return (
+return (
     <>
       <CategoryHero
         eyebrow="Value-Added Food Products from India"
+        imageAlt="Illustrative assortment of savoury snack products"
         title={
           <>
             Discover Indian Snacks
@@ -184,6 +167,9 @@ export default function ValueAddedSnacks() {
             </div>
           ))}
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-ink/60">
+          Product images are original catalogue illustrations for identification and are not photographs of confirmed supplier stock. Request current product photographs, samples and final specifications as part of your enquiry.
+        </p>
       </section>
 
       <CTA />

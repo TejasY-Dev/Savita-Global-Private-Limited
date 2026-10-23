@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import PageHeader from '../components/PageHeader';
 import CTA from '../components/CTA';
 import {
@@ -11,38 +10,7 @@ import {
 } from 'lucide-react';
 
 export default function QualitySystem() {
-  useEffect(() => {
-    document.title =
-      'Product Quality & Documentation | Savita Global';
-
-    const description =
-      'Learn about Savita Global Private Limited’s approach to product specifications, supplier documentation, quality checks and export requirements for food products and textiles sourced from India. Documents and certifications are subject to product and supplier verification.';
-
-    let meta = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    const previousDescription = meta?.content ?? '';
-
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    meta.content = description;
-
-    return () => {
-      document.title =
-        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
-
-      if (meta) {
-        meta.content = previousDescription;
-      }
-    };
-  }, []);
-
-  const principles = [
+const principles = [
     {
       icon: ClipboardList,
       title: 'Product Specifications',

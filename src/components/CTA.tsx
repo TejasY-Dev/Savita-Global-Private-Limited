@@ -17,14 +17,14 @@ export default function CTA() {
             <h2 className="font-display text-3xl lg:text-5xl font-semibold leading-tight">
               Looking for{' '}
               <span className="italic text-saffron">
-                dehydrated products from India?
+                Indian food products or home textiles?
               </span>
             </h2>
 
             <p className="mt-4 text-cream/70 max-w-xl">
-              Share your product requirement, specification, quantity and
-              destination. Our team can discuss sourcing, packaging and
-              supply options for your market.
+              Share the product, specification, quantity, packaging preference and
+              destination. We can discuss suitable sourcing options for food
+              products, towels and napkins, subject to supplier confirmation.
             </p>
           </div>
 

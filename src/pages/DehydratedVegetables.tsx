@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import CategoryHero from '../components/CategoryHero';
 import CatalogGrid from '../components/CatalogGrid';
 import CTA from '../components/CTA';
@@ -6,54 +5,72 @@ import CTA from '../components/CTA';
 const items = [
   {
     name: 'Red Onion Flakes',
+    image: `${import.meta.env.BASE_URL}products/vegetables/red-onion-flakes.jpg`,
+    imageAlt: 'Illustration of red onion flakes',
     form: 'Illustrative: Kibbled 5–10 mm',
     moisture: 'Indicative: ≤ 6%',
     packing: 'Example: 10 / 25 kg carton',
   },
   {
     name: 'Onion Powder',
+    image: `${import.meta.env.BASE_URL}products/vegetables/onion-powder.jpg`,
+    imageAlt: 'Illustration of onion powder',
     form: 'Illustrative: Powder 80–100 mesh',
     moisture: 'Indicative: ≤ 5%',
     packing: 'Example: 25 kg PE-lined bag',
   },
   {
     name: 'Onion Granules',
+    image: `${import.meta.env.BASE_URL}products/vegetables/onion-granules.jpg`,
+    imageAlt: 'Illustration of onion granules',
     form: 'Illustrative: Granules 20–40 mesh',
     moisture: 'Indicative: ≤ 6%',
     packing: 'Example: 25 kg carton',
   },
   {
     name: 'Tomato Powder',
+    image: `${import.meta.env.BASE_URL}products/vegetables/tomato-powder.jpg`,
+    imageAlt: 'Illustration of tomato powder',
     form: 'Illustrative: Spray-dried powder',
     moisture: 'Indicative: ≤ 4%',
     packing: 'Example: 20 kg carton',
   },
   {
     name: 'Tomato Flakes',
+    image: `${import.meta.env.BASE_URL}products/vegetables/tomato-flakes.jpg`,
+    imageAlt: 'Illustration of dehydrated tomato flakes',
     form: 'Illustrative: Air-dried flakes',
     moisture: 'Indicative: ≤ 6%',
     packing: 'Example: 10 kg carton',
   },
   {
     name: 'Spinach Powder',
+    image: `${import.meta.env.BASE_URL}products/vegetables/spinach-powder.jpg`,
+    imageAlt: 'Illustration of spinach powder',
     form: 'Illustrative: Fine powder',
     moisture: 'Indicative: ≤ 6%',
     packing: 'Example: 20 kg carton',
   },
   {
     name: 'Green Chilli Flakes',
+    image: `${import.meta.env.BASE_URL}products/vegetables/green-chilli-flakes.jpg`,
+    imageAlt: 'Illustration of green chilli flakes',
     form: 'Illustrative: Crushed 3–5 mm',
     moisture: 'Indicative: ≤ 8%',
     packing: 'Example: 10 kg carton',
   },
   {
     name: 'Ginger Powder',
+    image: `${import.meta.env.BASE_URL}products/vegetables/ginger-powder.jpg`,
+    imageAlt: 'Illustration of ginger powder',
     form: 'Illustrative: Powder, 60 mesh',
     moisture: 'Indicative: ≤ 8%',
     packing: 'Example: 25 kg bag',
   },
   {
     name: 'Beetroot Powder',
+    image: `${import.meta.env.BASE_URL}products/vegetables/beetroot-powder.jpg`,
+    imageAlt: 'Illustration of beetroot powder',
     form: 'Illustrative: Fine powder',
     moisture: 'Indicative: ≤ 6%',
     packing: 'Example: 20 kg carton',
@@ -61,40 +78,11 @@ const items = [
 ];
 
 export default function DehydratedVegetables() {
-  useEffect(() => {
-    document.title =
-      'Dehydrated Vegetables from India | Savita Global';
-
-    const description =
-      'Explore dehydrated vegetable sourcing options from India with Savita Global Private Limited. Enquire about onion flakes, onion powder, granules, tomato products and other vegetable ingredients. Specifications and availability are subject to supplier confirmation.';
-
-    let meta = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    const previousDescription = meta.content;
-    meta.content = description;
-
-    return () => {
-      document.title =
-        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
-
-      if (meta) {
-        meta.content = previousDescription;
-      }
-    };
-  }, []);
-
-  return (
+return (
     <>
       <CategoryHero
         eyebrow="Dehydrated Vegetable Sourcing from India"
+        imageAlt="Illustrative assortment of dehydrated vegetable ingredients"
         title={
           <>
             Dehydrated Vegetables
@@ -210,6 +198,9 @@ export default function DehydratedVegetables() {
             </ul>
           </div>
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-ink/60">
+          Product images are original catalogue illustrations for identification and are not photographs of confirmed supplier stock. Request current product photographs, samples and final specifications as part of your enquiry.
+        </p>
       </section>
 
       <CTA />

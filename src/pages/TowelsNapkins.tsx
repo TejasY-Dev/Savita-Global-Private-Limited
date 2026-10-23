@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import CategoryHero from '../components/CategoryHero';
 import CatalogGrid from '../components/CatalogGrid';
 import CTA from '../components/CTA';
@@ -6,54 +5,72 @@ import CTA from '../components/CTA';
 const items = [
   {
     name: 'Terry Kitchen Towel',
+    image: `${import.meta.env.BASE_URL}products/textiles/terry-kitchen-towel.jpg`,
+    imageAlt: 'Illustration of a terry kitchen towel',
     form: 'Example: Cotton • 400 GSM',
     packing: 'Example: 12 pcs per polybag',
     note: 'Example size: 40 × 60 cm • solid or stripe',
   },
   {
     name: 'Waffle Kitchen Towel',
+    image: `${import.meta.env.BASE_URL}products/textiles/waffle-kitchen-towel.jpg`,
+    imageAlt: 'Illustration of a waffle-weave kitchen towel',
     form: 'Example: Cotton • 320 GSM',
     packing: 'Example: 10 pcs per polybag',
     note: 'Example size: 45 × 65 cm',
   },
   {
     name: 'Printed Tea Towel',
+    image: `${import.meta.env.BASE_URL}products/textiles/printed-tea-towel.jpg`,
+    imageAlt: 'Illustration of a printed tea towel',
     form: 'Example: Cotton • 260 GSM',
     packing: 'Example: 25 pcs per polybag',
     note: 'Example size: 50 × 70 cm',
   },
   {
     name: 'Herringbone Glass Cloth',
+    image: `${import.meta.env.BASE_URL}products/textiles/herringbone-glass-cloth.jpg`,
+    imageAlt: 'Illustration of a herringbone glass cloth',
     form: 'Example: Cotton or blended fabric',
     packing: 'By enquiry',
     note: 'Example size: 45 × 65 cm',
   },
   {
     name: 'Chef Apron with Pocket',
+    image: `${import.meta.env.BASE_URL}products/textiles/chef-apron.jpg`,
+    imageAlt: 'Illustration of a chef apron with a pocket',
     form: 'Example: Twill fabric • 240 GSM',
     packing: 'By enquiry',
     note: 'Style and strap options to be confirmed',
   },
   {
     name: 'Hemmed Dinner Napkin',
+    image: `${import.meta.env.BASE_URL}products/textiles/hemmed-dinner-napkin.jpg`,
+    imageAlt: 'Illustration of a hemmed dinner napkin',
     form: 'Example: Cotton • 200 GSM',
     packing: 'Example: Box of 12',
     note: 'Example size: 40 × 40 cm',
   },
   {
     name: 'Cocktail Napkin',
+    image: `${import.meta.env.BASE_URL}products/textiles/cocktail-napkin.jpg`,
+    imageAlt: 'Illustration of a cocktail napkin',
     form: 'Example: Cotton • 180 GSM',
     packing: 'Example: Box of 24',
     note: 'Example size: 20 × 20 cm',
   },
   {
     name: 'Woven Placemat',
+    image: `${import.meta.env.BASE_URL}products/textiles/woven-placemat.jpg`,
+    imageAlt: 'Illustration of a woven placemat',
     form: 'Example: Cotton jacquard',
     packing: 'Example: Set of 4',
     note: 'Example size: 33 × 48 cm',
   },
   {
     name: 'Oven Mitt & Pot Holder Set',
+    image: `${import.meta.env.BASE_URL}products/textiles/oven-mitt-pot-holder.jpg`,
+    imageAlt: 'Illustration of an oven mitt and pot holder set',
     form: 'Example: Cotton outer fabric with padding',
     packing: 'By enquiry',
     note: 'Heat-resistance performance must be verified',
@@ -61,45 +78,11 @@ const items = [
 ];
 
 export default function TowelsNapkins() {
-  useEffect(() => {
-    const previousTitle = document.title;
-
-    const description =
-      'Explore sourcing options for kitchen towels, tea towels, cotton napkins, aprons and textile accessories from India with Savita Global Private Limited. Sizes, GSM, fabric composition, packaging and order quantities are subject to supplier confirmation.';
-
-    const existingMeta = document.querySelector(
-      'meta[name="description"]',
-    ) as HTMLMetaElement | null;
-
-    const previousDescription = existingMeta?.content;
-
-    const meta = existingMeta ?? document.createElement('meta');
-
-    if (!existingMeta) {
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    document.title =
-      'Cotton Towels & Napkins Sourcing from India | Savita Global';
-
-    meta.content = description;
-
-    return () => {
-      document.title = previousTitle;
-
-      if (existingMeta) {
-        meta.content = previousDescription ?? '';
-      } else {
-        meta.remove();
-      }
-    };
-  }, []);
-
-  return (
+return (
     <>
       <CategoryHero
         eyebrow="Towels & Napkins Sourcing from India"
+        imageAlt="Illustrative folded kitchen towels and napkins"
         title={
           <>
             Indian Home Textiles
@@ -182,6 +165,9 @@ export default function TowelsNapkins() {
             </div>
           ))}
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-ink/60">
+          Product images are original catalogue illustrations for identification and are not photographs of confirmed supplier stock. Request current product photographs, samples and final specifications as part of your enquiry.
+        </p>
       </section>
 
       <CTA />

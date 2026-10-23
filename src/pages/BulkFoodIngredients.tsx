@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import CategoryHero from '../components/CategoryHero';
 import CatalogGrid from '../components/CatalogGrid';
 import CTA from '../components/CTA';
@@ -6,24 +5,32 @@ import CTA from '../components/CTA';
 const items = [
   {
     name: 'Turmeric Fingers / Powder',
-    form: 'Example: Whole fingers or powder',
+    image: `${import.meta.env.BASE_URL}products/ingredients/turmeric-powder.jpg`,
+    imageAlt: 'Turmeric fingers and turmeric powder',
+    form: 'Example: Whole turmeric fingers or powder',
     moisture: 'Indicative: ≤ 10%',
     packing: 'Example: 25 / 50 kg bags',
   },
   {
     name: 'Red Chilli (Teja / S17)',
+    image: `${import.meta.env.BASE_URL}products/ingredients/red-chilli.jpg`,
+    imageAlt: 'Illustration of red chilli product',
     form: 'Example: Whole, stemless or powder',
     moisture: 'Indicative: ≤ 11%',
     packing: 'Example: 25 kg bag or carton',
   },
   {
     name: 'Cumin Seeds',
+    image: `${import.meta.env.BASE_URL}products/ingredients/cumin-seeds.jpg`,
+    imageAlt: 'Illustration of cumin seeds',
     form: 'Grade and origin by enquiry',
     moisture: 'Indicative: ≤ 8%',
     packing: 'Example: 25 kg bag',
   },
   {
     name: 'Green Cardamom',
+    image: `${import.meta.env.BASE_URL}products/ingredients/green-cardamom.jpg`,
+    imageAlt: 'Illustration of green cardamom',
     form: 'Example: 7–8 mm grade',
     moisture: 'Indicative: ≤ 12%',
     packing: 'Example: 5 kg carton',
@@ -31,41 +38,11 @@ const items = [
 ];
 
 export default function BulkFoodIngredients() {
-  useEffect(() => {
-    document.title =
-      'Bulk Food Ingredients from India | Savita Global';
-
-    const description =
-      'Explore sourcing options for Indian bulk food ingredients with Savita Global Private Limited. Enquire about turmeric, red chilli, cumin seeds and green cardamom. Product grades, specifications, packaging and availability are subject to supplier confirmation.';
-
-    let meta = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    const previousDescription = meta?.content ?? '';
-
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    meta.content = description;
-
-    return () => {
-      document.title =
-        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
-
-      if (meta) {
-        meta.content = previousDescription;
-      }
-    };
-  }, []);
-
-  return (
+return (
     <>
       <CategoryHero
         eyebrow="Bulk Food Ingredient Sourcing from India"
+        imageAlt="Illustrative assortment of Indian spices and food ingredients"
         title={
           <>
             Indian Food Ingredients
@@ -145,6 +122,9 @@ export default function BulkFoodIngredients() {
             ))}
           </ul>
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-ink/60">
+          Product images are original catalogue illustrations for identification and are not photographs of confirmed supplier stock. Request current product photographs, samples and final specifications as part of your enquiry.
+        </p>
       </section>
 
       <CTA />

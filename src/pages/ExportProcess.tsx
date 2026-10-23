@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import PageHeader from '../components/PageHeader';
 import CTA from '../components/CTA';
 
@@ -71,43 +70,7 @@ const planningDetails = [
 ];
 
 export default function ExportProcess() {
-  useEffect(() => {
-    const previousTitle = document.title;
-
-    document.title =
-      'Export Process & Order Coordination | Savita Global';
-
-    let meta = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    const createdMeta = !meta;
-
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    const previousDescription = meta.content;
-
-    meta.content =
-      'Explore Savita Global’s enquiry, sourcing, specification, packaging, documentation and shipment coordination process for buyers sourcing products from India.';
-
-    return () => {
-      document.title = previousTitle;
-
-      if (meta) {
-        if (createdMeta) {
-          meta.remove();
-        } else {
-          meta.content = previousDescription;
-        }
-      }
-    };
-  }, []);
-
-  return (
+return (
     <>
       <PageHeader
         eyebrow="Export Process"

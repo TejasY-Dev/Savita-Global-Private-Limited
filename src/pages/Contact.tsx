@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import PageHeader from '../components/PageHeader';
 
@@ -64,33 +64,7 @@ export default function Contact() {
   >('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [enquiryStarted, setEnquiryStarted] = useState(false);
-
-  useEffect(() => {
-    document.title =
-      'Contact Savita Global | B2B Export Enquiries India';
-
-    const description =
-      'Contact Savita Global Private Limited for B2B and export enquiries for dehydrated vegetables, dehydrated fruits, food ingredients, snacks, towels and napkins from India.';
-
-    let meta = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    meta.content = description;
-
-    return () => {
-      document.title =
-        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
-    };
-  }, []);
-
-  const set =
+const set =
     (key: keyof FormState) =>
     (
       e: React.ChangeEvent<

@@ -5,13 +5,14 @@ import { trackEvent } from '../analytics';
 const links = [
 { to: '/', label: 'Home' },
 { to: '/about', label: 'About' },
-{ to: '/dehydrated-vegetables', label: 'Dehydrated Vegetables' },
-{ to: '/dehydrated-fruits', label: 'Dehydrated Fruits' },
+{ to: '/dehydrated-vegetables', label: 'Vegetables' },
+{ to: '/dehydrated-fruits', label: 'Fruits' },
 { to: '/value-added-snacks', label: 'Snacks' },
 { to: '/bulk-food-ingredients', label: 'Bulk Ingredients' },
 { to: '/towels-napkins', label: 'Towels & Napkins' },
 { to: '/quality-system', label: 'Quality' },
-{ to: '/export-process', label: 'Process' },
+{ to: '/export-process', label: 'Export' },
+{ to: '/buyer-guides', label: 'Guides' },
 ];
 
 export default function Navbar() {
@@ -39,7 +40,7 @@ Savita <span className="italic text-saffron-dark">Global</span>
             to={l.to}  
             end={l.to === '/'}  
             className={({ isActive }) =>  
-              `px-3 py-2 text-[13px] font-medium tracking-wide transition-colors rounded-full ${  
+              `px-3 py-2 text-[12px] font-medium tracking-wide transition-colors rounded-full ${  
                 isActive ? 'text-forest-deep bg-forest/10' : 'text-ink/70 hover:text-forest-deep'  
               }`  
             }  

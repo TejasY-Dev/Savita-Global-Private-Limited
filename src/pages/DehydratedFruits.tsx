@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import CategoryHero from '../components/CategoryHero';
 import CatalogGrid from '../components/CatalogGrid';
 import CTA from '../components/CTA';
@@ -6,30 +5,40 @@ import CTA from '../components/CTA';
 const items = [
   {
     name: 'Mango Powder / Amchur',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/mango-powder.jpg`,
+    imageAlt: 'Illustration of mango powder',
     form: 'Example: Fine powder',
     moisture: 'Indicative: ≤ 8%',
     packing: 'Example: 20 kg carton',
   },
   {
     name: 'Banana Chips (Unsalted)',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/banana-chips.jpg`,
+    imageAlt: 'Illustration of banana chips',
     form: 'Example: Round chips',
     moisture: 'Indicative: ≤ 3%',
     packing: 'Example: 10 kg carton',
   },
   {
     name: 'Banana Powder',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/banana-powder.jpg`,
+    imageAlt: 'Illustration of banana powder',
     form: 'Example: Powder',
     moisture: 'Indicative: ≤ 5%',
     packing: 'Example: 20 kg carton',
   },
   {
     name: 'Guava Slices',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/guava-slices.jpg`,
+    imageAlt: 'Illustration of guava slices',
     form: 'Example: Sliced',
     moisture: 'Indicative: ≤ 15%',
     packing: 'Example: 5 kg carton',
   },
   {
     name: 'Amla Candy',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/amla-candy.jpg`,
+    imageAlt: 'Illustration of amla candy',
     form: 'Example: Sweetened cubes',
     moisture: 'Indicative: ≤ 18%',
     packing: 'Example: 10 kg carton',
@@ -37,41 +46,11 @@ const items = [
 ];
 
 export default function DehydratedFruits() {
-  useEffect(() => {
-    document.title =
-      'Dehydrated Fruits & Fruit Products from India | Savita Global';
-
-    const description =
-      'Explore fruit product sourcing options from India with Savita Global Private Limited. Enquire about mango powder, banana chips, banana powder, guava slices and amla candy. Product specifications and availability are subject to supplier confirmation.';
-
-    let meta = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    const previousDescription = meta?.content ?? '';
-
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-
-    meta.content = description;
-
-    return () => {
-      document.title =
-        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
-
-      if (meta) {
-        meta.content = previousDescription;
-      }
-    };
-  }, []);
-
-  return (
+return (
     <>
       <CategoryHero
         eyebrow="Fruit Products Sourcing from India"
+        imageAlt="Illustrative selection of dried fruit products"
         title={
           <>
             Fruit Products
@@ -176,6 +155,9 @@ export default function DehydratedFruits() {
             </ul>
           </div>
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-ink/60">
+          Product images are original catalogue illustrations for identification and are not photographs of confirmed supplier stock. Request current product photographs, samples and final specifications as part of your enquiry.
+        </p>
       </section>
 
       <CTA />

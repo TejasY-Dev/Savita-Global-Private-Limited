@@ -1,4 +1,3 @@
-import AdUnit from '../components/AdUnit';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -240,6 +239,38 @@ export default function Home() {
                   </span>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRACTICAL BUYER GUIDANCE */}
+      <section className="bg-cream-dark/35 py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10 grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <p className="leaf-divider mb-4">Useful for Buyers</p>
+            <h2 className="font-display text-3xl lg:text-4xl font-semibold leading-tight text-forest-deep">
+              Prepare a clear product enquiry.
+            </h2>
+            <p className="mt-4 leading-relaxed text-ink/70">
+              A detailed enquiry helps buyers and suppliers compare like-for-like options. You do not need to know every technical term—share what you know and identify anything that needs supplier confirmation.
+            </p>
+            <Link to="/buyer-guides" className="mt-6 inline-flex items-center gap-2 border-b border-forest-deep pb-1 font-semibold text-forest-deep hover:text-saffron-dark">
+              Read the B2B buyer guides <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="lg:col-span-7 grid gap-3 sm:grid-cols-2">
+            {[
+              ['01', 'Product & format', 'Name the product and form, such as flakes, powder, granules, chips or a towel style.'],
+              ['02', 'Specification', 'Share mesh size, cut, moisture, fabric composition, GSM, dimensions or a reference sample if known.'],
+              ['03', 'Quantity & packing', 'State trial or recurring quantity, preferred pack size and any retail or bulk packaging needs.'],
+              ['04', 'Destination & documents', 'Provide destination country, preferred delivery term and any documents required by your buyer or market.'],
+            ].map(([number, title, text]) => (
+              <div key={number} className="rounded-2xl border border-forest/10 bg-cream p-5">
+                <span className="font-display text-sm font-semibold text-saffron-dark">{number}</span>
+                <h3 className="mt-2 font-display text-lg font-semibold text-forest-deep">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/70">{text}</p>
+              </div>
             ))}
           </div>
         </div>
