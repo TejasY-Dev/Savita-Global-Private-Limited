@@ -1,104 +1,107 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import { trackEvent } from '../analytics';
-const links = [
-{ to: '/', label: 'Home' },
-{ to: '/about', label: 'About' },
-{ to: '/dehydrated-vegetables', label: 'Vegetables' },
-{ to: '/dehydrated-fruits', label: 'Fruits' },
-{ to: '/value-added-snacks', label: 'Snacks' },
-{ to: '/bulk-food-ingredients', label: 'Bulk Ingredients' },
-{ to: '/towels-napkins', label: 'Towels & Napkins' },
-{ to: '/quality-system', label: 'Quality' },
-{ to: '/export-process', label: 'Export' },
-{ to: '/buyer-guides', label: 'Guides' },
+
+const productLinks = [
+  { to: '/dehydrated-vegetables', label: 'Dehydrated Vegetables' },
+  { to: '/dehydrated-fruits', label: 'Dehydrated Fruits' },
+  { to: '/value-added-snacks', label: 'Value-Added Snacks' },
+  { to: '/bulk-food-ingredients', label: 'Bulk Food Ingredients' },
+  { to: '/towels-napkins', label: 'Towels & Napkins' },
+];
+
+const mobileLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About us' },
+  ...productLinks,
+  { to: '/quality-system', label: 'Quality approach' },
+  { to: '/export-process', label: 'Export process' },
+  { to: '/buyer-guides', label: 'Buyer guides' },
 ];
 
 export default function Navbar() {
-const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-return (
-<header className="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-forest/10">
-<div className="max-w-7xl mx-auto px-5 lg:px-10">
-<div className="flex items-center justify-between h-16 lg:h-20">
-<Link to="/" className="flex items-center gap-3 group">
-<img
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Savita Global Logo"
-              className="h-10 w-auto object-contain rounded-full"
-            />
-<span className="font-display text-xl lg:text-2xl font-semibold tracking-tight text-forest-deep">
-Savita <span className="italic text-saffron-dark">Global</span>
-</span>
-</Link>
-
-      <nav className="hidden xl:flex items-center gap-1">  
-        {links.map((l) => (  
-          <NavLink  
-            key={l.to}  
-            to={l.to}  
-            end={l.to === '/'}  
-            className={({ isActive }) =>  
-              `px-3 py-2 text-[12px] font-medium tracking-wide transition-colors rounded-full ${  
-                isActive ? 'text-forest-deep bg-forest/10' : 'text-ink/70 hover:text-forest-deep'  
-              }`  
-            }  
-          >  
-            {l.label}  
-          </NavLink>  
-        ))}  
-      </nav>
-
-      <Link
-  to="/contact"
-  onClick={() =>
-    trackEvent('b2b_enquiry_click', {
-      element: 'navbar_desktop_b2b_enquiry',
-    })
-  }
-  className="hidden xl:inline-flex items-center gap-2 bg-forest text-cream px-5 py-2.5 rounded-full text-sm font-medium hover:bg-forest-dark transition-colors"
->
-  B2B Enquiry
-</Link>
-
-      <button className="xl:hidden p-2" onClick={() => setOpen(!open)} aria-label="Menu">  
-        {open ? <X size={24} /> : <Menu size={24} />}  
-      </button>  
-    </div>
-
-    {open && (  
-      <div className="xl:hidden pb-5 border-t border-forest/10 pt-4 grid grid-cols-1 gap-1">  
-        {links.map((l) => (  
-          <NavLink  
-            key={l.to}  
-            to={l.to}  
-            end={l.to === '/'}  
-            onClick={() => setOpen(false)}  
-            className={({ isActive }) =>  
-              `px-3 py-2.5 rounded-lg text-sm font-medium ${  
-                isActive ? 'bg-forest text-cream' : 'text-ink hover:bg-forest/5'  
-              }`  
-            }  
-          >  
-            {l.label}  
-          </NavLink>  
-        ))}  
-        <Link
-  to="/contact"
-  onClick={() => {
-    trackEvent('b2b_enquiry_click', {
-      element: 'navbar_mobile_b2b_enquiry',
-    });
+  const trackEnquiry = (element: string) => {
+    trackEvent('b2b_enquiry_click', { element });
     setOpen(false);
-  }}
-  className="mt-2 text-center bg-saffron text-forest-deep px-5 py-3 rounded-full font-semibold"
->
-  B2B Enquiry
-</Link>
-      </div>  
-    )}  
-  </div>  
-</header>  
-);
+  };
+
+  return (
+    <>
+      <div className="sg-topbar">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 lg:px-10">
+          <p className="hidden sm:block">Quality from India. Trusted Worldwide.</p>
+          <div className="sg-topbar__contacts">
+            <a href="mailto:savitaglobalindia@gmail.com"><Mail size={13} /> savitaglobalindia@gmail.com</a>
+            <a href="tel:+919373569357"><Phone size={13} /> +91 93735 69357</a>
+            <span className="hidden xl:inline-flex"><MapPin size={13} /> Solapur, Maharashtra, India</span>
+          </div>
+        </div>
+      </div>
+
+      <header className="site-navbar sticky top-0 z-50 bg-cream/95 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10">
+        <div className="flex h-[72px] items-center justify-between gap-5 lg:h-[86px]">
+          <Link to="/" className="sg-brand group" aria-label="Savita Global home">
+            <span className="sg-brand__logo-wrap"><img src={`${import.meta.env.BASE_URL}logo.png`} alt="" className="brand-mark" /></span>
+            <span className="sg-brand__type"><strong>Savita <em>Global</em></strong><small>PRIVATE LIMITED</small></span>
+          </Link>
+
+          <nav className="sg-desktop-nav" aria-label="Main navigation">
+            <NavLink to="/" end className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Home</NavLink>
+            <NavLink to="/about" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>About</NavLink>
+            <div className="sg-nav-dropdown">
+              <button className="sg-nav-link sg-nav-dropdown__trigger" type="button" aria-haspopup="true">
+                Products <ChevronDown size={14} />
+              </button>
+              <div className="sg-nav-dropdown__menu">
+                <span className="sg-nav-dropdown__label">Explore categories</span>
+                {productLinks.map((item) => (
+                  <NavLink key={item.to} to={item.to} className={({ isActive }) => `sg-nav-dropdown__item ${isActive ? 'is-active' : ''}`}>
+                    {item.label}
+                  </NavLink>
+                ))}
+                <NavLink to="/export-supply" className="sg-nav-dropdown__item">Export supply services</NavLink>
+              </div>
+            </div>
+            <NavLink to="/quality-system" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Quality</NavLink>
+            <NavLink to="/export-process" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Export process</NavLink>
+            <NavLink to="/buyer-guides" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Buyer guides</NavLink>
+          </nav>
+
+          <Link
+            to="/contact"
+            onClick={() => trackEnquiry('navbar_desktop_b2b_enquiry')}
+            className="sg-nav-cta hidden lg:inline-flex"
+          >
+            Start an enquiry <span aria-hidden="true">↗</span>
+          </Link>
+
+          <button className="sg-menu-toggle lg:hidden" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
+            {open ? <X size={23} /> : <Menu size={23} />}
+          </button>
+        </div>
+
+        {open && (
+          <div className="sg-mobile-menu lg:hidden">
+            <div className="sg-mobile-menu__links">
+              {mobileLinks.map((item) => (
+                <NavLink key={item.to} to={item.to} end={item.to === '/'} onClick={() => setOpen(false)} className={({ isActive }) => `sg-mobile-link ${isActive ? 'is-active' : ''}`}>
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+            <Link to="/contact" onClick={() => trackEnquiry('navbar_mobile_b2b_enquiry')} className="sg-nav-cta sg-nav-cta--mobile">Start a B2B enquiry <span aria-hidden="true">↗</span></Link>
+            <div className="sg-mobile-menu__contact">
+              <a href="tel:+919373569357"><Phone size={14} /> +91 93735 69357</a>
+              <a href="mailto:savitaglobalindia@gmail.com"><Mail size={14} /> savitaglobalindia@gmail.com</a>
+            </div>
+          </div>
+        )}
+        </div>
+      </header>
+    </>
+  );
 }

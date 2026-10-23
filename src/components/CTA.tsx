@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section className="max-w-7xl mx-auto px-5 lg:px-10 my-20">
-      <div className="relative overflow-hidden bg-forest-deep text-cream rounded-3xl p-10 lg:p-16">
+    <section className="premium-cta max-w-7xl mx-auto px-5 lg:px-10 my-20 lg:my-28">
+      <div className="premium-cta__panel relative overflow-hidden bg-forest-deep text-cream rounded-3xl p-8 sm:p-10 lg:p-16">
         <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-saffron/20 blur-3xl" />
         <div className="absolute -left-10 -bottom-10 w-64 h-64 rounded-full bg-terra/20 blur-3xl" />
 

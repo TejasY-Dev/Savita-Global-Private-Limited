@@ -7,20 +7,23 @@ interface Props {
 
 export default function PageHeader({ eyebrow, title, intro, image }: Props) {
   return (
-    <section className="relative overflow-hidden bg-forest text-cream">
+    <section className="page-hero relative isolate overflow-hidden bg-forest-deep text-cream">
       {image && (
         <div
-          className="absolute inset-0 opacity-30"
-          style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          className="page-hero__image absolute inset-0"
+          style={{ backgroundImage: `url(${image})` }}
+          aria-hidden="true"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/95 via-forest-deep/80 to-forest-deep/40" />
-      <div className="relative max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <p className="leaf-divider !text-saffron mb-5 rise">{eyebrow}</p>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] max-w-4xl rise rise-2">
-          {title}
-        </h1>
-        {intro && <p className="mt-6 text-lg text-cream/80 max-w-2xl leading-relaxed rise rise-3">{intro}</p>}
+      <div className="page-hero__shade absolute inset-0" aria-hidden="true" />
+      <div className="page-hero__ornament page-hero__ornament--one" aria-hidden="true" />
+      <div className="page-hero__ornament page-hero__ornament--two" aria-hidden="true" />
+      <div className="page-hero__grid absolute inset-0" aria-hidden="true" />
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:py-24 lg:px-10 lg:py-32">
+        <p className="leaf-divider page-hero__eyebrow !text-saffron mb-5">{eyebrow}</p>
+        <h1 className="page-hero__title font-display max-w-4xl text-4xl font-semibold leading-[1.04] sm:text-5xl lg:text-7xl">{title}</h1>
+        {intro && <p className="page-hero__intro mt-6 max-w-2xl text-base leading-relaxed text-cream/80 sm:text-lg">{intro}</p>}
+        <div className="page-hero__rule mt-9" aria-hidden="true"><span /></div>
       </div>
     </section>
   );

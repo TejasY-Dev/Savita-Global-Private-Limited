@@ -29,10 +29,10 @@ export default function CatalogGrid({
       {items.map((item, index) => (
         <article
           key={item.name}
-          className="group overflow-hidden rounded-2xl border border-forest/10 bg-cream transition-all duration-300 hover:-translate-y-1 hover:border-forest/30 hover:shadow-lg"
+          className="catalog-card group overflow-hidden rounded-2xl border border-forest/10 bg-cream transition-all duration-500"
         >
           {item.image && (
-            <div className="relative aspect-[4/3] overflow-hidden bg-cream-dark/50">
+            <div className="catalog-card__media relative aspect-[4/3] overflow-hidden bg-cream-dark/50">
               <img
                 src={item.image}
                 alt={item.imageAlt || `${item.name} product illustration`}
@@ -40,7 +40,7 @@ export default function CatalogGrid({
                 decoding="async"
                 width="640"
                 height="420"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.07]"
               />
               <span className="absolute bottom-3 left-3 rounded-full border border-white/70 bg-cream/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-forest-deep backdrop-blur">
                 Illustrative image
@@ -48,7 +48,7 @@ export default function CatalogGrid({
             </div>
           )}
 
-          <div className="p-5">
+          <div className="catalog-card__body p-5 sm:p-6">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-lg font-semibold leading-tight text-forest-deep">
                 {item.name}

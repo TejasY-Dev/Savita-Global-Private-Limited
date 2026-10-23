@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-forest-deep text-cream/85 pt-16 pb-8 mt-24">
+    <footer className="site-footer bg-forest-deep text-cream/85 pt-16 pb-8 mt-24">
       <div className="max-w-7xl mx-auto px-5 lg:px-10 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3 mb-4">
@@ -20,23 +20,23 @@ export default function Footer() {
         <div>
           <h4 className="font-display text-lg text-saffron mb-4">Products</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/dehydrated-vegetables" className="hover:text-saffron">Dehydrated Vegetables</Link></li>
-            <li><Link to="/dehydrated-fruits" className="hover:text-saffron">Dehydrated Fruits</Link></li>
-            <li><Link to="/value-added-snacks" className="hover:text-saffron">Value-Added Snacks</Link></li>
-            <li><Link to="/bulk-food-ingredients" className="hover:text-saffron">Bulk Food Ingredients</Link></li>
-            <li><Link to="/towels-napkins" className="hover:text-saffron">Towels & Napkins</Link></li>
+            <li><Link to="/dehydrated-vegetables" className="footer-link hover:text-saffron">Dehydrated Vegetables</Link></li>
+            <li><Link to="/dehydrated-fruits" className="footer-link hover:text-saffron">Dehydrated Fruits</Link></li>
+            <li><Link to="/value-added-snacks" className="footer-link hover:text-saffron">Value-Added Snacks</Link></li>
+            <li><Link to="/bulk-food-ingredients" className="footer-link hover:text-saffron">Bulk Food Ingredients</Link></li>
+            <li><Link to="/towels-napkins" className="footer-link hover:text-saffron">Towels & Napkins</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-display text-lg text-saffron mb-4">Company</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/about" className="hover:text-saffron">About Savita Global</Link></li>
-            <li><Link to="/quality-system" className="hover:text-saffron">Quality System</Link></li>
-            <li><Link to="/export-process" className="hover:text-saffron">Export Process</Link></li>
-            <li><Link to="/export-supply" className="hover:text-saffron">Export Supply</Link></li>
-            <li><Link to="/buyer-guides" className="hover:text-saffron">Buyer Guides</Link></li>
-            <li><Link to="/contact" className="hover:text-saffron">B2B Enquiry</Link></li>
+            <li><Link to="/about" className="footer-link hover:text-saffron">About Savita Global</Link></li>
+            <li><Link to="/quality-system" className="footer-link hover:text-saffron">Quality System</Link></li>
+            <li><Link to="/export-process" className="footer-link hover:text-saffron">Export Process</Link></li>
+            <li><Link to="/export-supply" className="footer-link hover:text-saffron">Export Supply</Link></li>
+            <li><Link to="/buyer-guides" className="footer-link hover:text-saffron">Buyer Guides</Link></li>
+            <li><Link to="/contact" className="footer-link hover:text-saffron">B2B Enquiry</Link></li>
           </ul>
         </div>
 
@@ -44,8 +44,8 @@ export default function Footer() {
           <h4 className="font-display text-lg text-saffron mb-4">Get in touch</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-3"><MapPin size={16} className="mt-0.5 text-saffron flex-shrink-0" /><span>P No. 43 Balaji Vilas, Akkalkot Road, Gandhi Nagar, Solapur, <br/>Maharashtra 413005, India</span></li>
-            <li className="flex gap-3"><Phone size={16} className="mt-0.5 text-saffron" /><a href="tel:+919373569357" className="hover:text-saffron">+91 9373569357</a></li>
-            <li className="flex gap-3"><Mail size={16} className="mt-0.5 text-saffron" /><a href="mailto:savitaglobalindia@gmail.com" className="hover:text-saffron">savitaglobalindia@gmail.com</a></li>
+            <li className="flex gap-3"><Phone size={16} className="mt-0.5 text-saffron" /><a href="tel:+919373569357" className="footer-link hover:text-saffron">+91 9373569357</a></li>
+            <li className="flex gap-3"><Mail size={16} className="mt-0.5 text-saffron" /><a href="mailto:savitaglobalindia@gmail.com" className="footer-link hover:text-saffron">savitaglobalindia@gmail.com</a></li>
           </ul>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 lg:px-10 mt-12 pt-6 border-t border-cream/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-cream/50">
         <p>© {new Date().getFullYear()} Savita Global Private Limited. All rights reserved.</p>
         <div className="flex flex-wrap items-center gap-4">
-          <Link to="/privacy-policy" className="hover:text-saffron">Privacy Policy</Link>
+          <Link to="/privacy-policy" className="footer-link hover:text-saffron">Privacy Policy</Link>
           <span>CIN: U10302PN2026PTC259532</span>
         </div>
       </div>

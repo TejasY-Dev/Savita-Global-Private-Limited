@@ -12,9 +12,9 @@ interface Props {
 
 export default function CategoryHero({ eyebrow, imageAlt, title, intro, image, highlights }: Props) {
   return (
-    <section className="relative bg-cream">
+    <section className="category-hero relative overflow-hidden bg-cream">
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-14 lg:py-20 grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-6">
+        <div className="category-hero__copy lg:col-span-6">
           <p className="leaf-divider mb-5">{eyebrow}</p>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-forest-deep leading-[1.05]">{title}</h1>
           <p className="mt-6 text-lg text-ink/75 leading-relaxed max-w-xl">{intro}</p>
@@ -38,11 +38,11 @@ export default function CategoryHero({ eyebrow, imageAlt, title, intro, image, h
           </div>
         </div>
 
-        <div className="lg:col-span-6">
-          <div className="relative">
+        <div className="category-hero__visual lg:col-span-6">
+          <div className="category-hero__image-wrap relative">
             <div className="absolute -inset-3 bg-saffron/20 rounded-3xl -rotate-2" />
             <div className="absolute -inset-3 bg-forest/10 rounded-3xl rotate-1" />
-            <img src={image} alt={imageAlt || `${eyebrow} illustrative category image`} width="1200" height="900" decoding="async" fetchPriority="high" className="relative rounded-3xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <img src={image} alt={imageAlt || `${eyebrow} illustrative category image`} width="1200" height="900" decoding="async" fetchPriority="high" className="category-hero__image relative rounded-3xl w-full aspect-[4/3] object-cover shadow-xl" />
             <div className="absolute -bottom-5 -left-5 bg-cream border border-forest/10 rounded-2xl px-4 py-3 shadow-lg">
               <p className="text-[10px] uppercase tracking-widest text-mute font-semibold">Origin</p>
               <p className="font-display text-forest-deep font-semibold">Made in India 🇮🇳</p>

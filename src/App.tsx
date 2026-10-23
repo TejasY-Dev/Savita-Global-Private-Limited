@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import SiteMotion from './components/SiteMotion';
 import { trackEvent } from './analytics';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
@@ -27,7 +28,7 @@ type SeoDetails = { title: string; description: string; image?: string; noindex?
 
 const PAGE_SEO: Record<string, SeoDetails> = {
   '/': {
-    title: 'Savita Global Private Limited | Indian Food & Textile Sourcing',
+    title: 'Savita Global Private Limited | Quality from India. Trusted Worldwide.',
     description: 'Explore Indian dehydrated vegetables, fruit products, snacks, bulk food ingredients, towels and napkins with Savita Global Private Limited. Share your product specification, quantity and destination for a B2B sourcing enquiry.',
     image: '/hero-farm.jpg',
   },
@@ -161,8 +162,9 @@ export default function App() {
     <div className="min-h-screen bg-cream text-ink flex flex-col">
       <ScrollToTop />
       <PageViewTracker />
+      <SiteMotion />
       <Navbar />
-      <main className="flex-1">
+      <main className="page-stage flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
