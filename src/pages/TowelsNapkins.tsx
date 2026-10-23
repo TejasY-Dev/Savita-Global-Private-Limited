@@ -62,32 +62,36 @@ const items = [
 
 export default function TowelsNapkins() {
   useEffect(() => {
-    document.title =
-      'Cotton Towels & Napkins Sourcing from India | Savita Global';
+    const previousTitle = document.title;
 
     const description =
       'Explore sourcing options for kitchen towels, tea towels, cotton napkins, aprons and textile accessories from India with Savita Global Private Limited. Sizes, GSM, fabric composition, packaging and order quantities are subject to supplier confirmation.';
 
-    let meta = document.querySelector(
-      'meta[name="description"]'
+    const existingMeta = document.querySelector(
+      'meta[name="description"]',
     ) as HTMLMetaElement | null;
 
-    const previousDescription = meta?.content ?? '';
+    const previousDescription = existingMeta?.content;
 
-    if (!meta) {
-      meta = document.createElement('meta');
+    const meta = existingMeta ?? document.createElement('meta');
+
+    if (!existingMeta) {
       meta.name = 'description';
       document.head.appendChild(meta);
     }
 
+    document.title =
+      'Cotton Towels & Napkins Sourcing from India | Savita Global';
+
     meta.content = description;
 
     return () => {
-      document.title =
-        'Savita Global Private Limited | Dehydrated Food & Export Supplier India';
+      document.title = previousTitle;
 
-      if (meta) {
-        meta.content = previousDescription;
+      if (existingMeta) {
+        meta.content = previousDescription ?? '';
+      } else {
+        meta.remove();
       }
     };
   }, []);
