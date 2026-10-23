@@ -9,6 +9,7 @@ import {
   Factory,
 } from 'lucide-react';
 import CTA from '../components/CTA';
+import ScrollReveal from '../components/ScrollReveal';
 
 const categories = [
   {
@@ -58,14 +59,21 @@ export default function Home() {
           <img
             src={`${import.meta.env.BASE_URL}hero-farm.jpg`}
             alt="Indian agriculture and product sourcing"
-            className="w-full h-full object-cover"
+            className="hero-background w-full h-full object-cover"
           />
 
           <div className="absolute inset-0 bg-gradient-to-r from-forest-deep via-forest-deep/90 to-forest-deep/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/80 via-transparent to-transparent" />
+          <div className="hero-orb hero-orb-one" aria-hidden="true" />
+          <div className="hero-orb hero-orb-two" aria-hidden="true" />
+          <div className="hero-grid" aria-hidden="true" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10 pt-24 pb-32 lg:pt-36 lg:pb-44">
+          <div className="hero-kicker mb-6 inline-flex items-center gap-2 rounded-full border border-cream/25 bg-forest-deep/25 px-4 py-2 text-xs font-semibold tracking-[.18em] text-cream/90 backdrop-blur-sm">
+            <span className="h-2 w-2 rounded-full bg-saffron animate-pulse" />
+            SOURCING FROM INDIA · BUILT FOR GLOBAL TRADE
+          </div>
           <p className="leaf-divider !text-saffron mb-6 rise">
             Savita Global Private Limited
           </p>
@@ -118,8 +126,9 @@ export default function Home() {
       </section> */}
 
       {/* PROMISE */}
-      <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-5">
+      <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <ScrollReveal className="lg:col-span-5">
           <p className="leaf-divider mb-5">Our Promise</p>
 
           <h2 className="font-display text-4xl lg:text-5xl font-semibold text-forest-deep leading-[1.05]">
@@ -145,7 +154,7 @@ export default function Home() {
             Read our story
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </ScrollReveal>
 
         <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
           {[
@@ -170,9 +179,10 @@ export default function Home() {
               text: 'Discuss shipment planning, export documentation and logistics options according to product, destination and applicable requirements.',
             },
           ].map(({ icon: Icon, title, text }) => (
-            <div
+            <ScrollReveal
               key={title}
-              className="bg-cream-dark/50 border border-forest/10 rounded-2xl p-6 hover:bg-cream-dark transition-colors"
+              className="feature-card bg-cream-dark/50 border border-forest/10 rounded-2xl p-6 hover:bg-cream-dark transition-colors"
+              delay={0}
             >
               <Icon className="text-saffron-dark" size={26} />
 
@@ -183,15 +193,16 @@ export default function Home() {
               <p className="text-sm text-ink/70 mt-2 leading-relaxed">
                 {text}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
+        </div>
         </div>
       </section>
 
       {/* CATEGORIES CATALOGUE */}
       <section className="bg-cream-dark/40 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-5 lg:px-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <p className="leaf-divider mb-5">Product Catalogue</p>
 
@@ -206,14 +217,14 @@ export default function Home() {
               specifications, packaging and export documentation are
               confirmed for each enquiry.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((c) => (
+              <ScrollReveal key={c.to} className="h-full">
               <Link
-                key={c.to}
                 to={c.to}
-                className="group relative overflow-hidden rounded-2xl bg-cream border border-forest/10 hover:border-forest/30 transition-all"
+                className="product-card group relative block h-full overflow-hidden rounded-2xl bg-cream border border-forest/10 hover:border-forest/30 transition-all"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -239,6 +250,7 @@ export default function Home() {
                   </span>
                 </div>
               </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -247,7 +259,7 @@ export default function Home() {
       {/* PRACTICAL BUYER GUIDANCE */}
       <section className="bg-cream-dark/35 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-5 lg:px-10 grid gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5">
+          <ScrollReveal className="lg:col-span-5">
             <p className="leaf-divider mb-4">Useful for Buyers</p>
             <h2 className="font-display text-3xl lg:text-4xl font-semibold leading-tight text-forest-deep">
               Prepare a clear product enquiry.
@@ -258,7 +270,7 @@ export default function Home() {
             <Link to="/buyer-guides" className="mt-6 inline-flex items-center gap-2 border-b border-forest-deep pb-1 font-semibold text-forest-deep hover:text-saffron-dark">
               Read the B2B buyer guides <ArrowRight size={16} />
             </Link>
-          </div>
+          </ScrollReveal>
           <div className="lg:col-span-7 grid gap-3 sm:grid-cols-2">
             {[
               ['01', 'Product & format', 'Name the product and form, such as flakes, powder, granules, chips or a towel style.'],
@@ -266,11 +278,11 @@ export default function Home() {
               ['03', 'Quantity & packing', 'State trial or recurring quantity, preferred pack size and any retail or bulk packaging needs.'],
               ['04', 'Destination & documents', 'Provide destination country, preferred delivery term and any documents required by your buyer or market.'],
             ].map(([number, title, text]) => (
-              <div key={number} className="rounded-2xl border border-forest/10 bg-cream p-5">
+              <ScrollReveal key={number} className="rounded-2xl border border-forest/10 bg-cream p-5">
                 <span className="font-display text-sm font-semibold text-saffron-dark">{number}</span>
                 <h3 className="mt-2 font-display text-lg font-semibold text-forest-deep">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/70">{text}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -279,7 +291,7 @@ export default function Home() {
       {/* GLOBAL SOURCING & SHIPPING */}
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 relative">
+          <ScrollReveal className="lg:col-span-6 relative">
             <img
               src={`${import.meta.env.BASE_URL}world-map.jpg`}
               alt="India's connection to international markets"
@@ -294,9 +306,9 @@ export default function Home() {
                 Indian products. Global opportunities.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className="lg:col-span-6">
+          <ScrollReveal className="lg:col-span-6" delay={120}>
             <p className="leaf-divider mb-5">Global Opportunities</p>
 
             <h2 className="font-display text-4xl lg:text-5xl font-semibold text-forest-deep leading-tight">
@@ -335,7 +347,7 @@ export default function Home() {
               Explore our export process
               <ArrowRight size={17} />
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
