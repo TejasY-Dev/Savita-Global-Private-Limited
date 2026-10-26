@@ -21,7 +21,7 @@ const items = [
   },
   {
     name: 'Dehydrated Pineapple',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/pineapple.jpg`,
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/pinapple.jpg`,
     imageAlt: 'Illustration of dehydrated pineapple',
     form: 'Example: Diced',
     moisture: 'Indicative: ≤ 10%',
