@@ -4,11 +4,11 @@ import CTA from '../components/CTA';
 
 const items = [
   {
-    name: 'Mango Powder / Amchur',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/mango-powder.jpg`,
-    imageAlt: 'Illustration of mango powder',
-    form: 'Example: Fine powder',
-    moisture: 'Indicative: ≤ 8%',
+    name: 'Dehydrated Orange Peel',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/orange-peel.jpg`,
+    imageAlt: 'Illustration of dehydrated orange peel',
+    form: 'Example: Shredded',
+    moisture: 'Indicative: ≤ 10%',
     packing: 'Example: 20 kg carton',
   },
   {
@@ -20,17 +20,17 @@ const items = [
     packing: 'Example: 10 kg carton',
   },
   {
-    name: 'Banana Powder',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/banana-powder.jpg`,
-    imageAlt: 'Illustration of banana powder',
-    form: 'Example: Powder',
-    moisture: 'Indicative: ≤ 5%',
+    name: 'Dehydrated Pineapple',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/pineapple.jpg`,
+    imageAlt: 'Illustration of dehydrated pineapple',
+    form: 'Example: Diced',
+    moisture: 'Indicative: ≤ 10%',
     packing: 'Example: 20 kg carton',
   },
   {
-    name: 'Guava Slices',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/guava-slices.jpg`,
-    imageAlt: 'Illustration of guava slices',
+    name: 'Dehydrated High Acidity Pomegranate',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/DehydratedHighAcidityPomegranate.jpg`,
+    imageAlt: 'Illustration of dehydrated high acidity pomegranate',
     form: 'Example: Sliced',
     moisture: 'Indicative: ≤ 15%',
     packing: 'Example: 5 kg carton',
