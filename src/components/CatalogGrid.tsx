@@ -61,13 +61,13 @@ export default function CatalogGrid({
             <dl className="mt-3 space-y-2 text-[13px]">
               {item.form && (
                 <div className="flex items-start justify-between gap-3">
-                  <dt className="shrink-0 text-mute">Form</dt>
+                  <dt className="shrink-0 text-mute">Specification focus</dt>
                   <dd className="text-right text-ink/85">{item.form}</dd>
                 </div>
               )}
               {item.moisture && (
                 <div className="flex items-start justify-between gap-3">
-                  <dt className="shrink-0 text-mute">Moisture</dt>
+                  <dt className="shrink-0 text-mute">Technical parameter</dt>
                   <dd className="text-right text-ink/85">{item.moisture}</dd>
                 </div>
               )}

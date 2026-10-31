@@ -18,6 +18,7 @@ import {
 import CTA from '../components/CTA';
 import ScrollReveal from '../components/ScrollReveal';
 import HomeHero from '../components/HomeHero';
+import SourcingDisclosure from '../components/SourcingDisclosure';
 
 const categories = [
   {
@@ -30,7 +31,7 @@ const categories = [
   },
   {
     to: '/dehydrated-fruits',
-    label: 'Dehydrated Fruits',
+    label: 'Fruit Ingredients & Products',
     kicker: 'Fruit ingredients',
     img: `${import.meta.env.BASE_URL}dehydrated-fruits.jpg`,
     desc: 'Fruit-based ingredients and product formats, sourced according to requirement and availability.',
@@ -96,7 +97,7 @@ const principles = [
 const applications = [
   {
     icon: Factory,
-    title: 'Food manufacturing',
+    title: 'Food brands & processors',
     text: 'Dehydrated ingredients and bulk food products for recipes, blends and processing needs.',
   },
   {
@@ -177,7 +178,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-lg text-base leading-relaxed text-ink/65">
-              Explore our core sourcing categories. Product specifications, availability, pricing, packing and documentation are confirmed for each requirement before an order is agreed.
+              Browse the product categories we are prepared to discuss with business buyers. Listings are enquiry-led; specifications, source, availability, pricing, packing and documentation are confirmed for each requirement before an order is agreed.
             </p>
           </ScrollReveal>
 
@@ -186,7 +187,7 @@ export default function Home() {
               <ScrollReveal key={category.to} delay={index * 55} className="h-full">
                 <Link to={category.to} className={`sg-category-card sg-category-card--${index + 1} group`}>
                   <div className="sg-category-card__image">
-                    <img src={category.img} alt={`${category.label} from Savita Global`} loading={index < 3 ? 'eager' : 'lazy'} />
+                    <img src={category.img} alt={`Representative image for ${category.label.toLowerCase()}` } loading={index < 3 ? 'eager' : 'lazy'} />
                     <span className="sg-category-card__number">{category.number}</span>
                     <span className="sg-category-card__arrow" aria-hidden="true"><ArrowDownRight size={21} /></span>
                     <span className="sg-category-card__image-shade" />
@@ -208,16 +209,18 @@ export default function Home() {
         </div>
       </section>
 
+      <SourcingDisclosure />
+
       {/* Quality promise / about */}
       <section className="sg-quality-section">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-28">
           <ScrollReveal className="sg-quality-visual lg:col-span-6">
-            <img src={`${import.meta.env.BASE_URL}quality.jpg`} alt="Food quality review and inspection as part of a sourcing process" loading="lazy" />
+            <img src={`${import.meta.env.BASE_URL}quality.jpg`} alt="Representative image illustrating a product quality review; not a photograph of a Savita Global laboratory" loading="lazy" />
             <div className="sg-quality-stamp">
               <span className="sg-quality-stamp__icon"><BadgeCheck size={23} /></span>
               <span><strong>Details matter.</strong><small>Agreed specifications. Clear communication.</small></span>
             </div>
-            <span className="sg-quality-visual__label">A considered approach to every enquiry</span>
+            <span className="sg-quality-visual__label">Representative image · not a Savita-owned lab</span>
           </ScrollReveal>
 
           <ScrollReveal className="lg:col-span-6" delay={100}>

@@ -7,73 +7,73 @@ const items = [
     name: 'Terry Kitchen Towel',
     image: `${import.meta.env.BASE_URL}products/textiles/terry-kitchen-towel.jpg`,
     imageAlt: 'Illustration of a terry kitchen towel',
-    form: 'Example: Cotton • 400 GSM',
-    packing: 'Example: 12 pcs per polybag',
-    note: 'Example size: 40 × 60 cm • solid or stripe',
+    form: 'Terry construction; fibre content, pile and size by specification',
+    packing: 'Pack count, folding and label by enquiry',
+    note: 'Confirm absorbency, finished dimensions, GSM, colourfastness and seam finish.',
   },
   {
     name: 'Waffle Kitchen Towel',
     image: `${import.meta.env.BASE_URL}products/textiles/waffle-kitchen-towel.jpg`,
     imageAlt: 'Illustration of a waffle-weave kitchen towel',
-    form: 'Example: Cotton • 320 GSM',
-    packing: 'Example: 10 pcs per polybag',
-    note: 'Example size: 45 × 65 cm',
+    form: 'Waffle weave; fibre content and dimensions by specification',
+    packing: 'Pack count, folding and label by enquiry',
+    note: 'Specify cell pattern, weight, shrinkage, absorbency and finished size.',
   },
   {
     name: 'Printed Tea Towel',
     image: `${import.meta.env.BASE_URL}products/textiles/printed-tea-towel.jpg`,
     imageAlt: 'Illustration of a printed tea towel',
-    form: 'Example: Cotton • 260 GSM',
-    packing: 'Example: 25 pcs per polybag',
-    note: 'Example size: 50 × 70 cm',
+    form: 'Printed fabric; fibre, artwork and dimensions by enquiry',
+    packing: 'Bulk or retail pack by enquiry',
+    note: 'Agree artwork, print placement, colour reference, wash performance and hem finish.',
   },
   {
     name: 'Herringbone Glass Cloth',
     image: `${import.meta.env.BASE_URL}products/textiles/herringbone-glass-cloth.jpg`,
     imageAlt: 'Illustration of a herringbone glass cloth',
-    form: 'Example: Cotton or blended fabric',
+    form: 'Herringbone construction; fibre and weight to be specified',
     packing: 'By enquiry',
-    note: 'Example size: 45 × 65 cm',
+    note: 'Discuss linting, polishing performance, dimensions, edge finish and laundering.',
   },
   {
     name: 'Chef Apron with Pocket',
     image: `${import.meta.env.BASE_URL}products/textiles/chef-apron.jpg`,
     imageAlt: 'Illustration of a chef apron with a pocket',
-    form: 'Example: Twill fabric • 240 GSM',
+    form: 'Apron pattern; fabric, fit and dimensions by specification',
     packing: 'By enquiry',
-    note: 'Style and strap options to be confirmed',
+    note: 'Specify fabric, pocket layout, strap adjustment, stitching and colour.',
   },
   {
     name: 'Hemmed Dinner Napkin',
     image: `${import.meta.env.BASE_URL}products/textiles/hemmed-dinner-napkin.jpg`,
     imageAlt: 'Illustration of a hemmed dinner napkin',
-    form: 'Example: Cotton • 200 GSM',
-    packing: 'Example: Box of 12',
-    note: 'Example size: 40 × 40 cm',
+    form: 'Woven napkin; fibre, dimensions and hem by specification',
+    packing: 'Set size and retail or bulk packing by enquiry',
+    note: 'Confirm finished size, shrinkage, colourfastness, hem width and pressing requirements.',
   },
   {
     name: 'Cocktail Napkin',
     image: `${import.meta.env.BASE_URL}products/textiles/cocktail-napkin.jpg`,
     imageAlt: 'Illustration of a cocktail napkin',
-    form: 'Example: Cotton • 180 GSM',
-    packing: 'Example: Box of 24',
-    note: 'Example size: 20 × 20 cm',
+    form: 'Napkin format; fibre, dimensions and finish by enquiry',
+    packing: 'Set size and retail or bulk packing by enquiry',
+    note: 'Specify shape, fold, edge finish, colour, print and pack configuration.',
   },
   {
     name: 'Woven Placemat',
     image: `${import.meta.env.BASE_URL}products/textiles/woven-placemat.jpg`,
     imageAlt: 'Illustration of a woven placemat',
-    form: 'Example: Cotton jacquard',
-    packing: 'Example: Set of 4',
-    note: 'Example size: 33 × 48 cm',
+    form: 'Woven construction; material, shape and dimensions by enquiry',
+    packing: 'Set size and pack format by enquiry',
+    note: 'Confirm surface, backing, edge finish, colour and care instructions.',
   },
   {
     name: 'Oven Mitt & Pot Holder Set',
     image: `${import.meta.env.BASE_URL}products/textiles/oven-mitt-pot-holder.jpg`,
     imageAlt: 'Illustration of an oven mitt and pot holder set',
-    form: 'Example: Cotton outer fabric with padding',
+    form: 'Textile outer with padding; construction by enquiry',
     packing: 'By enquiry',
-    note: 'Heat-resistance performance must be verified',
+    note: 'Heat-protection performance must be tested to a defined standard; appearance alone is not evidence.',
   },
 ];
 
@@ -108,22 +108,29 @@ return (
         </h2>
 
         <p className="text-sm text-mute max-w-2xl mb-8 leading-relaxed">
-          Explore example product styles and specifications.
-          Final fabric composition, GSM, dimensions, colours,
-          stitching, finishing, packaging and minimum order
-          quantities depend on the selected supplier and product.
+          The styles below help describe the type of textile a buyer may be looking for. Fibre content, weight, dimensions, workmanship and performance must be stated in the buyer’s own specification and confirmed for the offered product.
         </p>
 
         <CatalogGrid items={items} accent="terra" />
 
         <p className="mt-6 text-sm text-ink/65 leading-relaxed border border-forest/10 rounded-xl p-4">
-          <strong>Product information:</strong> The styles, sizes,
-          GSM values and packaging shown are illustrative only.
-          They do not confirm current stock or guaranteed supply.
-          Final specifications, fibre composition, sample approval,
-          production lead time and applicable certifications must
-          be verified with the supplier before order confirmation.
+          <strong>Product information:</strong> This is an enquiry catalogue, not a ready-stock list. Images are illustrations. No GSM, fabric composition, size, colour, certification, minimum order or production time is promised here. Ask for a product-specific specification and physical sample before approving an order.
         </p>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-12">
+        <p className="leaf-divider mb-3">Build a textile specification</p>
+        <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">Five details that make towel offers comparable.</h2>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {[
+            ['Fibre content', 'State the exact fibre and permitted blend. Do not substitute a visual or touch description for a composition requirement.'],
+            ['Weave & construction', 'Name terry, waffle, herringbone or other construction and define pile, yarn or backing details where relevant.'],
+            ['Weight & size', 'Specify GSM, finished width and length, tolerance and whether dimensions are measured before or after laundering.'],
+            ['Performance', 'Define absorbency, linting, colourfastness, shrinkage, seam strength and care requirements that matter to use.'],
+            ['Finish & pack', 'Set the edge finish, hanging loop, embroidery or print, fold, pieces per pack, label and carton marking.'],
+          ].map(([title, text]) => <article key={title} className="rounded-2xl border border-forest/10 bg-cream p-5"><h3 className="font-display text-lg font-semibold text-forest-deep">{title}</h3><p className="mt-2 text-sm leading-relaxed text-ink/70">{text}</p></article>)}
+        </div>
+        <p className="mt-6 text-sm leading-relaxed text-ink/70"><strong>GSM explained:</strong> grams per square metre. A buyer can estimate it by weighing a known fabric area and dividing the mass in grams by that area in square metres. Agree the measurement method and tolerance with the supplier; do not compare products using GSM alone, because fibre, weave, pile and finishing also affect performance.</p>
       </section>
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-16">

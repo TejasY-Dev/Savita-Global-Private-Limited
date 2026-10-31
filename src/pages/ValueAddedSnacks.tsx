@@ -128,6 +128,19 @@ return (
         </p>
       </section>
 
+      <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-12">
+        <p className="leaf-divider mb-3">For product developers</p>
+        <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">A snack brief needs more than a flavour name.</h2>
+        <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            ['Base material', 'Specify the raw material, variety or blend, cut shape, dimensions and any permitted raw-material substitutions.'],
+            ['Processing', 'State whether the product is fried, baked, dried, roasted or another process. Confirm oil type or processing aids where relevant.'],
+            ['Recipe & allergens', 'Share seasoning, salt, sweetener, additive, allergen and cross-contact requirements for the intended market.'],
+            ['Shelf life & pack', 'Agree pack size, packaging barrier, storage conditions, date coding, lot coding and evidence supporting shelf life.'],
+          ].map(([title, text]) => <article key={title} className="rounded-2xl border border-forest/10 bg-cream p-6"><h3 className="font-display text-xl font-semibold text-forest-deep">{title}</h3><p className="mt-3 text-sm leading-relaxed text-ink/70">{text}</p></article>)}
+        </div>
+      </section>
+
       <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-16">
         <p className="leaf-divider mb-3">Buyer Requirements</p>
 

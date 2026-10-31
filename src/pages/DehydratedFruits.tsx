@@ -4,44 +4,39 @@ import CTA from '../components/CTA';
 
 const items = [
   {
-    name: 'Dehydrated Orange Peel',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/orange-peel.jpg`,
-    imageAlt: 'Illustration of dehydrated orange peel',
-    form: 'Example: Shredded',
-    moisture: 'Indicative: ≤ 10%',
-    packing: 'Example: 20 kg carton',
+    name: 'Mango Powder / Amchur',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/mango-powder.jpg`,
+    imageAlt: 'Illustration of mango powder',
+    form: 'Powder; raw material, sourness and particle size by enquiry',
+    note: 'Confirm mango variety or source, ingredient declaration, colour, taste, moisture and application.',
   },
   {
-    name: 'Banana Chips (Unsalted)',
+    name: 'Banana Chips',
     image: `${import.meta.env.BASE_URL}products/fruits-snacks/banana-chips.jpg`,
     imageAlt: 'Illustration of banana chips',
-    form: 'Example: Round chips',
-    moisture: 'Indicative: ≤ 3%',
-    packing: 'Example: 10 kg carton',
+    form: 'Plain or seasoned slices; cut and process to be confirmed',
+    note: 'Specify banana variety, frying or drying method, oil, seasoning, allergens and pack format.',
   },
   {
-    name: 'Dehydrated Pineapple',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/pinapple.jpg`,
-    imageAlt: 'Illustration of dehydrated pineapple',
-    form: 'Example: Diced',
-    moisture: 'Indicative: ≤ 10%',
-    packing: 'Example: 20 kg carton',
+    name: 'Banana Powder',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/banana-powder.jpg`,
+    imageAlt: 'Illustration of banana powder',
+    form: 'Powder; ripeness, colour and particle size to be agreed',
+    note: 'Confirm raw material, process, additives or carriers, flavour, dispersibility and storage.',
   },
   {
-    name: 'Dehydrated High Acidity Pomegranate',
-    image: `${import.meta.env.BASE_URL}products/fruits-snacks/DehydratedHighAcidityPomegranate.jpg`,
-    imageAlt: 'Illustration of dehydrated high acidity pomegranate',
-    form: 'Example: Sliced',
-    moisture: 'Indicative: ≤ 15%',
-    packing: 'Example: 5 kg carton',
+    name: 'Guava Slices',
+    image: `${import.meta.env.BASE_URL}products/fruits-snacks/guava-slices.jpg`,
+    imageAlt: 'Illustration of guava slices',
+    form: 'Dried slices; thickness and preparation by enquiry',
+    note: 'Define seed and peel expectations, added ingredients, texture, colour, moisture and shelf life.',
   },
   {
     name: 'Amla Candy',
     image: `${import.meta.env.BASE_URL}products/fruits-snacks/amla-candy.jpg`,
     imageAlt: 'Illustration of amla candy',
-    form: 'Example: Sweetened cubes',
-    moisture: 'Indicative: ≤ 18%',
-    packing: 'Example: 10 kg carton',
+    form: 'Sweetened or other agreed preparation; recipe by enquiry',
+    note: 'Confirm the complete recipe, sugar level, permitted additives, allergens, texture and pack type.',
   },
 ];
 
@@ -49,11 +44,11 @@ export default function DehydratedFruits() {
 return (
     <>
       <CategoryHero
-        eyebrow="Fruit Products Sourcing from India"
+        eyebrow="Fruit Ingredients & Fruit-Based Products from India"
         imageAlt="Illustrative selection of dried fruit products"
         title={
           <>
-            Fruit Products
+            Fruit Ingredients & Products
             <span className="italic text-saffron-dark">
               {' '}from India.
             </span>
@@ -76,22 +71,27 @@ return (
         </h2>
 
         <p className="text-sm text-mute max-w-2xl mb-8 leading-relaxed">
-          Explore example product forms and specifications.
-          Final product details, ingredients, moisture limits,
-          packaging and minimum order quantities depend on the
-          selected product and confirmed supplier specifications.
+          These product examples cover both ingredient formats and fruit-based snack products. They do not all use the same processing method or product standard; each requirement needs its own ingredient and technical specification.
         </p>
 
         <CatalogGrid items={items} accent="terra" />
 
         <p className="mt-6 text-sm text-ink/65 leading-relaxed border border-forest/10 rounded-xl p-4">
-          <strong>Product information:</strong> The specifications
-          and packaging shown are illustrative only. They are not
-          confirmation of current stock or guaranteed supply.
-          Please enquire to confirm product availability, ingredients,
-          country of origin, specifications, applicable documents
-          and order quantities before placing an order.
+          <strong>Product information:</strong> This is an enquiry catalogue, not a stock list. The illustrations do not confirm actual supplier stock. Ingredient lists, processing methods, origin, shelf life, allergens, testing, packaging and order quantities must be confirmed for the specific product and destination before an offer is accepted.
         </p>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-16">
+        <p className="leaf-divider mb-3">A useful distinction for buyers</p>
+        <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">Fruit ingredient, dried fruit or snack?</h2>
+        <div className="mt-7 grid gap-5 md:grid-cols-3">
+          {[
+            { title: 'Fruit powders', text: 'Confirm the fruit input, drying or powdering process, particle size, colour, flavour, carriers or anti-caking ingredients and how the powder performs in the buyer’s formulation.' },
+            { title: 'Dried fruit pieces', text: 'Specify fruit variety where relevant, slice or dice dimensions, peel and seed expectations, texture, added sugar or preservatives, moisture and water activity.' },
+            { title: 'Fruit-based snacks', text: 'State whether the product is fried, dried, candied or seasoned. Ask for a full ingredient list, allergen statement, nutrition information, oil or sugar details and shelf-life support.' },
+          ].map((item) => <article key={item.title} className="rounded-2xl border border-forest/10 bg-cream p-6"><h3 className="font-display text-xl font-semibold text-forest-deep">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-ink/70">{item.text}</p></article>)}
+        </div>
+        <p className="mt-6 text-sm leading-relaxed text-ink/70">These categories can have different ingredients, processes, food-safety considerations and label declarations. A dried fruit specification should not automatically be reused for a fried chip or sweetened candy. Agree the actual recipe, processing method and intended market before pricing.</p>
       </section>
 
       <section className="bg-cream-dark/40 py-16">

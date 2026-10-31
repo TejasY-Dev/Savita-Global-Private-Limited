@@ -73,17 +73,17 @@ export default function ExportProcess() {
 return (
     <>
       <PageHeader
-        eyebrow="Export Process"
+        eyebrow="Typical Sourcing & Order Sequence"
         title={
           <>
-            Clear steps.
+            A defined enquiry.
             <br />
             <span className="italic text-saffron">
-              Confirmed expectations.
+              Written order conditions.
             </span>
           </>
         }
-        intro="From the first enquiry to shipment coordination, we work to clarify product requirements, commercial terms, documentation and logistics before an order proceeds. The exact process depends on the product and agreed order terms."
+        intro="This is a typical sequence for evaluating a sourcing or export enquiry. It is not a promise that every enquiry will become an order. Supplier availability, applicable registrations, product eligibility, documentation, logistics and written commercial terms must be confirmed before shipment commitments are made."
         image={`${import.meta.env.BASE_URL}export-supply.jpg`}
       />
 
@@ -120,6 +120,9 @@ return (
         </div>
       </section>
 
+      <section className="mx-auto max-w-4xl px-5 pb-8 lg:px-10">
+        <p className="rounded-2xl border border-forest/10 bg-cream-dark/50 p-5 text-sm leading-relaxed text-ink/70"><strong className="text-forest-deep">Order control:</strong> Do not treat a sample, indicative specification, preliminary quotation or estimated transit time as a final commitment. The final purchase order or sales contract should identify the product, approved specification, quantity, inspection and rejection criteria, price, named delivery point, Incoterm version, payment terms, shipment window and required documents.</p>
+      </section>
       <CTA />
     </>
   );

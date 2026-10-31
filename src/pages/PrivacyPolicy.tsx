@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 
-const updated = '22 October 2026';
+const updated = '30 October 2026';
 
 export default function PrivacyPolicy() {
   return (

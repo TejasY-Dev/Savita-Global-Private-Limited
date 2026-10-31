@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin-login
+Disallow: /dashboard
+Disallow: /accounts
+Disallow: /api/
 
 Sitemap: https://savita-global-private-limited-ten.vercel.app/sitemap.xml

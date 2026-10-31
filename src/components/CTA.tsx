@@ -11,7 +11,7 @@ export default function CTA() {
         <div className="relative grid lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
             <p className="leaf-divider !text-saffron mb-4">
-              B2B & Export Enquiries
+              Domestic & International Enquiries
             </p>
 
             <h2 className="font-display text-3xl lg:text-5xl font-semibold leading-tight">
@@ -33,7 +33,7 @@ export default function CTA() {
               to="/contact"
               className="inline-flex items-center gap-3 bg-saffron text-forest-deep px-8 py-4 rounded-full font-semibold hover:bg-cream transition-colors"
             >
-              Request a B2B Quote <ArrowRight size={18} />
+              Discuss a B2B Requirement <ArrowRight size={18} />
             </Link>
           </div>
         </div>

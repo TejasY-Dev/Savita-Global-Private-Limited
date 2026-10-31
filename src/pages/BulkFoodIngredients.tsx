@@ -7,33 +7,29 @@ const items = [
     name: 'Turmeric Fingers / Powder',
     image: `${import.meta.env.BASE_URL}products/ingredients/turmeric-powder.jpg`,
     imageAlt: 'Illustration of turmeric powder',
-    form: 'Example: Whole fingers or powder',
-    moisture: 'Indicative: ≤ 10%',
-    packing: 'Example: 25 / 50 kg bags',
+    form: 'Whole fingers or powder; grade and particle size by enquiry',
+    note: 'Where required, specify curcumin, colour, moisture, foreign matter, residue tests and test method.',
   },
   {
     name: 'Red Chilli (Teja / S17)',
     image: `${import.meta.env.BASE_URL}products/ingredients/red-chilli.jpg`,
     imageAlt: 'Illustration of red chilli product',
-    form: 'Example: Whole, stemless or powder',
-    moisture: 'Indicative: ≤ 11%',
-    packing: 'Example: 25 kg bag or carton',
+    form: 'Whole, stemless, crushed or powder; variety to be confirmed',
+    note: 'Define colour, pungency, stem/seed tolerance, particle size, cleanliness and applicable safety tests.',
   },
   {
     name: 'Cumin Seeds',
     image: `${import.meta.env.BASE_URL}products/ingredients/cumin-seeds.jpg`,
     imageAlt: 'Illustration of cumin seeds',
-    form: 'Grade and origin by enquiry',
-    moisture: 'Indicative: ≤ 8%',
-    packing: 'Example: 25 kg bag',
+    form: 'Whole seed; grade and origin by enquiry',
+    note: 'Discuss purity, foreign matter, seed appearance, aroma, moisture and any requested volatile-oil test.',
   },
   {
     name: 'Green Cardamom',
     image: `${import.meta.env.BASE_URL}products/ingredients/green-cardamom.jpg`,
     imageAlt: 'Illustration of green cardamom',
-    form: 'Example: 7–8 mm grade',
-    moisture: 'Indicative: ≤ 12%',
-    packing: 'Example: 5 kg carton',
+    form: 'Whole pods; size or grade definition to be agreed',
+    note: 'Specify pod size, colour, boldness, splits, aroma, moisture and acceptable defect levels.',
   },
 ];
 
@@ -68,22 +64,27 @@ return (
         </h2>
 
         <p className="text-sm text-mute max-w-2xl mb-8 leading-relaxed">
-          Explore example product forms and grades. Final
-          specifications, moisture limits, packaging, minimum
-          order quantities and availability depend on the selected
-          product and confirmed supplier information.
+          A spice specification should be product-specific. The attributes below are prompts for a buyer brief, not fixed grade limits, test results or a statement of current availability.
         </p>
 
         <CatalogGrid items={items} accent="forest" />
 
         <p className="mt-6 text-sm text-ink/65 leading-relaxed border border-forest/10 rounded-xl p-4">
-          <strong>Product information:</strong> The grades,
-          specifications and packing details shown are illustrative
-          only. They do not confirm current stock or guaranteed
-          supply. Please enquire to verify product origin,
-          specifications, documentation, availability and order
-          quantities before confirming a purchase.
+          <strong>Product information:</strong> This is an enquiry catalogue, not a stock list or a guaranteed grade offer. Origin, crop/lot reference, grade, test results, applicable certificates, packing, minimum order and availability must be confirmed in a written product-specific offer.
         </p>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-12">
+        <p className="leaf-divider mb-3">How to compare spice offers</p>
+        <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">Ask for a grade definition, not just a product name.</h2>
+        <div className="mt-7 grid gap-5 md:grid-cols-2">
+          {[
+            { title: 'Identity and grade', text: 'Confirm the exact spice, variety or commercial grade, whole or ground form, size definition and acceptable defect or foreign-matter levels.' },
+            { title: 'Performance markers', text: 'Select markers relevant to the product: for example, curcumin for turmeric, colour or pungency measures for chilli, or volatile-oil characteristics for spices where the buyer requires them. Agree the test method.' },
+            { title: 'Food-safety checks', text: 'Define any required microbiological, pesticide-residue, mycotoxin, contaminant or other tests based on the product specification and destination market.' },
+            { title: 'Lot and test traceability', text: 'Ask whether a certificate of analysis relates to the actual proposed lot, when it was tested, which laboratory issued it and which methods were used.' },
+          ].map((item) => <article key={item.title} className="rounded-2xl border border-forest/10 bg-cream p-6"><h3 className="font-display text-xl font-semibold text-forest-deep">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-ink/70">{item.text}</p></article>)}
+        </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-10">
@@ -108,12 +109,12 @@ return (
 
           <ul className="space-y-4 text-sm text-ink/75">
             {[
-              'Product specifications and supplier documentation, where available',
-              'Applicable phytosanitary or fumigation requirements, where relevant',
-              'Country-of-origin documentation, subject to eligibility and issuing authority',
-              'Food safety, non-GMO or non-irradiation documents, where applicable and verified',
-              'Halal or Kosher requirements, subject to product and valid certification',
-              'Third-party inspection options, subject to agreement and availability',
+              'Product specification and supplier identity for the offered lot',
+              'Country of origin and traceability records, where available',
+              'Food-safety tests relevant to the product and destination',
+              'Residue or contaminant testing, if required by the buyer or market',
+              'Certificates only where applicable, valid and issued by an authorised body',
+              'Inspection scope, sampling method and cost, agreed before purchase',
             ].map((item) => (
               <li key={item} className="flex gap-3 items-start">
                 <span className="text-saffron-dark mt-0.5">◆</span>

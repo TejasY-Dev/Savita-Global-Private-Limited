@@ -27,7 +27,8 @@ const supabaseAuth = createClient(
 
 const products = [
   'Dehydrated Vegetables',
-  'Dehydrated Fruits',
+  'Fruit Ingredients & Products',
+  'Dehydrated Fruits', // Legacy submissions / saved enquiry compatibility
   'Value-Added Snacks',
   'Bulk Food Ingredients',
   'Export Supply Services',
@@ -136,7 +137,7 @@ export default async function handler(req, res) {
 
       // Country
       if (!country) {
-        errors.country = 'Destination country is required.';
+        errors.country = 'Delivery destination is required.';
       } else if (country.length < 2) {
         errors.country = 'Please enter a valid country.';
       } else if (country.length > 100) {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import PageHeader from '../components/PageHeader';
 
@@ -14,10 +15,11 @@ import { trackEvent } from '../analytics';
 
 const products = [
   'Dehydrated Vegetables',
-  'Dehydrated Fruits',
+  'Fruit Ingredients & Products',
   'Value-Added Snacks',
   'Bulk Food Ingredients',
   'Towels & Napkins',
+  'Export Supply Services',
   'Other / Mixed',
 ];
 
@@ -51,7 +53,7 @@ const initialForm: FormState = {
   phone: '',
   country: '',
   product: products[0],
-  incoterm: incoterms[0],
+  incoterm: 'Not sure yet',
   quantity: '',
   message: '',
 };
@@ -140,9 +142,9 @@ const set =
 
     // Country
     if (!form.country.trim()) {
-      newErrors.country = 'Destination country is required.';
+      newErrors.country = 'Please enter a delivery destination.';
     } else if (form.country.trim().length < 2) {
-      newErrors.country = 'Please enter a valid country.';
+      newErrors.country = 'Please enter a valid delivery destination.';
     }
 
     // Quantity - optional
@@ -247,16 +249,16 @@ const set =
   return (
     <>
       <PageHeader
-        eyebrow="B2B Export Enquiries / Contact"
+        eyebrow="Domestic & International Business Enquiries"
         title={
           <>
-            B2B Export Enquiries{' '}
+            Business Enquiries{' '}
             <span className="italic text-saffron">
               from India.
             </span>
           </>
         }
-        intro="Share your product requirement, specification, quantity and destination country. Our team will review your enquiry and discuss suitable sourcing, packaging and supply options."
+        intro="Share your company details, product requirement, approximate quantity and delivery destination. We review each enquiry to establish whether a suitable supplier and supply route can be confirmed."
         image={`${import.meta.env.BASE_URL}export-supply.jpg`}
       />
 
@@ -264,7 +266,7 @@ const set =
         <div className="lg:col-span-2 space-y-8">
           <div>
             <p className="leaf-divider mb-3">
-              Head Office
+              Business Contact
             </p>
 
             <p className="font-display text-2xl text-forest-deep font-semibold leading-snug">
@@ -279,8 +281,7 @@ const set =
                 />
 
                 <span>
-                  Plot no.43 Balaji Vilas, Akkalkot Road, Gandhi Nagar,
-                  Solapur, Maharashtra
+                  Solapur, Maharashtra, India
                 </span>
               </li>
 
@@ -418,7 +419,7 @@ const set =
               </Field>
 
               <Field
-                label="Destination country"
+                label="Delivery destination (city / state / country)"
                 required
                 error={errors.country}
               >
@@ -428,7 +429,7 @@ const set =
                   value={form.country}
                   onChange={set('country')}
                   className={inputClass(!!errors.country)}
-                  placeholder="e.g. United Arab Emirates"
+                  placeholder="e.g. Pune, Maharashtra, India or Dubai, UAE"
                 />
               </Field>
 
@@ -493,6 +494,10 @@ const set =
                 placeholder="Tell us the product, specification, packaging requirement, target quantity and expected shipment window…"
               />
             </Field>
+
+            <p className="text-xs leading-relaxed text-ink/60">
+              We use the details you submit to review and respond to this business enquiry. Please do not include passwords or bank credentials. See our <Link to="/privacy-policy" className="font-semibold text-forest hover:underline">Privacy Policy</Link> for information about website and enquiry data.
+            </p>
 
             {status === 'error' && (
               <p className="text-sm text-terra bg-terra/10 border border-terra/30 rounded-lg px-4 py-3">

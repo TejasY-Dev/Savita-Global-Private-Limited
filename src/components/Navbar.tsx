@@ -5,7 +5,7 @@ import { trackEvent } from '../analytics';
 
 const productLinks = [
   { to: '/dehydrated-vegetables', label: 'Dehydrated Vegetables' },
-  { to: '/dehydrated-fruits', label: 'Dehydrated Fruits' },
+  { to: '/dehydrated-fruits', label: 'Fruit Ingredients & Products' },
   { to: '/value-added-snacks', label: 'Value-Added Snacks' },
   { to: '/bulk-food-ingredients', label: 'Bulk Food Ingredients' },
   { to: '/towels-napkins', label: 'Towels & Napkins' },
@@ -15,7 +15,7 @@ const mobileLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About us' },
   ...productLinks,
-  { to: '/quality-system', label: 'Quality approach' },
+  { to: '/quality-system', label: 'Product checks & documents' },
   { to: '/export-process', label: 'Export process' },
   { to: '/buyer-guides', label: 'Buyer guides' },
 ];
@@ -66,7 +66,7 @@ export default function Navbar() {
                 <NavLink to="/export-supply" className="sg-nav-dropdown__item">Export supply services</NavLink>
               </div>
             </div>
-            <NavLink to="/quality-system" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Quality</NavLink>
+            <NavLink to="/quality-system" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Product checks</NavLink>
             <NavLink to="/export-process" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Export process</NavLink>
             <NavLink to="/buyer-guides" className={({ isActive }) => `sg-nav-link ${isActive ? 'is-active' : ''}`}>Buyer guides</NavLink>
           </nav>

@@ -21,7 +21,7 @@ export default function Footer() {
           <h4 className="font-display text-lg text-saffron mb-4">Products</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/dehydrated-vegetables" className="footer-link hover:text-saffron">Dehydrated Vegetables</Link></li>
-            <li><Link to="/dehydrated-fruits" className="footer-link hover:text-saffron">Dehydrated Fruits</Link></li>
+            <li><Link to="/dehydrated-fruits" className="footer-link hover:text-saffron">Fruit Ingredients & Products</Link></li>
             <li><Link to="/value-added-snacks" className="footer-link hover:text-saffron">Value-Added Snacks</Link></li>
             <li><Link to="/bulk-food-ingredients" className="footer-link hover:text-saffron">Bulk Food Ingredients</Link></li>
             <li><Link to="/towels-napkins" className="footer-link hover:text-saffron">Towels & Napkins</Link></li>
@@ -32,7 +32,7 @@ export default function Footer() {
           <h4 className="font-display text-lg text-saffron mb-4">Company</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/about" className="footer-link hover:text-saffron">About Savita Global</Link></li>
-            <li><Link to="/quality-system" className="footer-link hover:text-saffron">Quality System</Link></li>
+            <li><Link to="/quality-system" className="footer-link hover:text-saffron">Product Checks & Documentation</Link></li>
             <li><Link to="/export-process" className="footer-link hover:text-saffron">Export Process</Link></li>
             <li><Link to="/export-supply" className="footer-link hover:text-saffron">Export Supply</Link></li>
             <li><Link to="/buyer-guides" className="footer-link hover:text-saffron">Buyer Guides</Link></li>
@@ -43,7 +43,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display text-lg text-saffron mb-4">Get in touch</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-3"><MapPin size={16} className="mt-0.5 text-saffron flex-shrink-0" /><span>P No. 43 Balaji Vilas, Akkalkot Road, Gandhi Nagar, Solapur, <br/>Maharashtra 413005, India</span></li>
+            <li className="flex gap-3"><MapPin size={16} className="mt-0.5 text-saffron flex-shrink-0" /><span>Solapur, Maharashtra, India</span></li>
             <li className="flex gap-3"><Phone size={16} className="mt-0.5 text-saffron" /><a href="tel:+919373569357" className="footer-link hover:text-saffron">+91 9373569357</a></li>
             <li className="flex gap-3"><Mail size={16} className="mt-0.5 text-saffron" /><a href="mailto:savitaglobalindia@gmail.com" className="footer-link hover:text-saffron">savitaglobalindia@gmail.com</a></li>
           </ul>

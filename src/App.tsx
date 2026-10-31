@@ -34,7 +34,7 @@ const PAGE_SEO: Record<string, SeoDetails> = {
   },
   '/about': {
     title: 'About Savita Global Private Limited | India-Based Sourcing',
-    description: 'Learn about Savita Global Private Limited, an India-based sourcing and trading company helping domestic and international buyers explore food products and home textiles from India.',
+    description: 'Company profile, legal identity and transparent sourcing model of Savita Global Private Limited, based in Solapur, Maharashtra. Learn what our product catalogue represents and what buyers should confirm before ordering.',
     image: '/hero-farm.jpg',
   },
   '/dehydrated-vegetables': {
@@ -43,8 +43,8 @@ const PAGE_SEO: Record<string, SeoDetails> = {
     image: '/dehydrated-vegetables.jpg',
   },
   '/dehydrated-fruits': {
-    title: 'Dehydrated Fruits & Fruit Products from India | Savita Global',
-    description: 'Explore fruit ingredient and snack sourcing options including mango powder, banana chips, banana powder, guava slices and amla candy. Product specifications and availability are confirmed with suppliers.',
+    title: 'Fruit Ingredients & Fruit-Based Products from India | Savita Global',
+    description: 'Buyer information for mango powder, banana chips, banana powder, guava slices and amla candy. Review ingredient, process, allergen, shelf-life and packaging questions before requesting a supplier quotation.',
     image: '/dehydrated-fruits.jpg',
   },
   '/value-added-snacks': {
@@ -59,7 +59,7 @@ const PAGE_SEO: Record<string, SeoDetails> = {
   },
   '/export-supply': {
     title: 'Export Supply & Sourcing Coordination from India | Savita Global',
-    description: 'Learn how Savita Global coordinates product sourcing enquiries, specification review, supplier communication, packaging discussions and shipment planning according to agreed requirements.',
+    description: 'Learn the possible steps in an India-side sourcing enquiry. Export execution, registrations, supplier documentation, freight scope and destination requirements are checked for each proposed transaction.',
     image: '/export-supply.jpg',
   },
   '/towels-napkins': {
@@ -68,8 +68,8 @@ const PAGE_SEO: Record<string, SeoDetails> = {
     image: '/towels-napkins.jpg',
   },
   '/quality-system': {
-    title: 'Quality System & Supplier Documentation | Savita Global',
-    description: 'Understand Savita Global’s specification-led approach to supplier information, product documentation, applicable testing and export requirements. Certification and report availability must be verified for each product and supplier.',
+    title: 'Product Checks & Supplier Documents | Savita Global',
+    description: 'Learn how product specifications, supplier records, lot details, testing and destination-market documents should be reviewed. No in-house laboratory or company-held certificate is implied.',
     image: '/quality.jpg',
   },
   '/export-process': {
@@ -78,13 +78,13 @@ const PAGE_SEO: Record<string, SeoDetails> = {
     image: '/export-supply.jpg',
   },
   '/contact': {
-    title: 'Contact Savita Global | B2B Export Enquiries India',
-    description: 'Contact Savita Global Private Limited in Solapur, Maharashtra for B2B sourcing enquiries about dehydrated foods, ingredients, snacks, towels and napkins. Share company, product, quantity and destination details.',
+    title: 'Contact Savita Global | Domestic & International Business Enquiries',
+    description: 'Contact Savita Global Private Limited in Solapur, Maharashtra for sourcing enquiries about dehydrated vegetables, fruit products, spices, snacks, towels and napkins. Share a product brief, quantity and delivery destination.',
     image: '/hero-farm.jpg',
   },
   '/buyer-guides': {
     title: 'B2B Buying Guides for Indian Food & Textile Products | Savita Global',
-    description: 'Use practical checklists to prepare bulk enquiries for dehydrated vegetables, fruit products, snacks, spices, towels and napkins, including specifications, packaging, quantities, destination and required documents.',
+    description: 'Detailed buyer guidance for dehydrated vegetable ingredients, fruit products, bulk spices, snacks and towels. Learn how to write specifications, compare samples, define textile GSM and prepare an RFQ.',
     image: '/dehydrated-vegetables.jpg',
   },
   '/privacy-policy': {

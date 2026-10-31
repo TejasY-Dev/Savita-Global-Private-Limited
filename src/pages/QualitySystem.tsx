@@ -85,21 +85,21 @@ const principles = [
   return (
     <>
       <PageHeader
-        eyebrow="Quality & Documentation"
+        eyebrow="Product Checks & Supplier Documentation"
         title={
           <>
-            Clear specifications.
+            Product details you can review.
             <span className="italic text-saffron">
-              {' '}Informed decisions.
+              {' '}Documents you can verify.
             </span>
           </>
         }
-        intro="Savita Global Private Limited takes a specification-led approach to sourcing and supply. We work to understand buyer requirements, review available supplier documentation and clarify relevant quality, testing, packaging and destination-market requirements before an order is confirmed."
+        intro="Savita Global Private Limited is a sourcing-led business. For each proposed product, we aim to identify the checks and records relevant to the buyer's specification, then confirm which information is available from the proposed supplier or an agreed inspection provider. This page describes the review process; it is not a claim of an in-house laboratory or a company-held product certification."
         image={`${import.meta.env.BASE_URL}quality.jpg`}
       />
 
       <section className="max-w-7xl mx-auto px-5 lg:px-10 py-16">
-        <p className="leaf-divider mb-3">Our Approach</p>
+        <p className="leaf-divider mb-3">How information is reviewed</p>
 
         <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold mb-4">
           Quality requirements depend on the product.
@@ -168,12 +168,7 @@ const principles = [
           </div>
 
           <p className="mt-8 text-cream/70 text-sm max-w-3xl leading-relaxed">
-            Certifications, laboratory reports, inspections and
-            other documents are not implied to be held by Savita
-            Global. Availability and validity must be confirmed
-            for the specific product and supplier. Applicable
-            legal and destination-market requirements should be
-            verified before shipment.
+            Savita Global does not claim to operate a product-testing laboratory. A supplier certificate, test report or inspection document is not automatically a Savita Global certification. Check the issuing organisation, scope, validity period, product or lot reference and test method before relying on any document. Destination-market requirements should be checked with the relevant authority or qualified adviser.
           </p>
         </div>
       </section>

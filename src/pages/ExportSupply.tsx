@@ -42,12 +42,12 @@ const pillars = [
   },
 ];
 
-const serviceCommitments = [
-  'Payment terms agreed and documented before order confirmation',
-  'Inspection coordination through a mutually agreed provider',
-  'Cargo insurance options discussed according to the shipment and agreed Incoterms',
-  'Export documentation coordinated according to applicable requirements',
-  'Post-shipment communication and claim coordination under agreed order terms',
+const orderCheckpoints = [
+  'Identify the seller of record, buyer and responsible exporter',
+  'Agree product specifications, sample approval and acceptance criteria',
+  'Record price, currency, payment schedule and applicable taxes or charges',
+  'Confirm the named place, delivery responsibilities and chosen Incoterm',
+  'List required inspection, insurance, documents and shipment updates',
 ];
 
 export default function ExportSupply() {
@@ -57,13 +57,13 @@ export default function ExportSupply() {
         eyebrow="Export Supply & Coordination"
         title={
           <>
-            One partner,{' '}
+            India-side sourcing support.
             <span className="italic text-saffron-dark">
-              coordinated from India to your port.
+              {' '}Scope confirmed for each order.
             </span>
           </>
         }
-        intro="Savita Global helps international buyers coordinate sourcing, packaging and shipment planning for selected Indian products. Every enquiry is reviewed according to product availability, buyer requirements, destination regulations and agreed order terms."
+        intro="Savita Global reviews international sourcing enquiries for selected Indian products. A proposed order can proceed only after the supplier, product details, applicable registrations, destination rules, documentation, commercial terms and service-provider scope have been checked for that transaction."
         image={`${import.meta.env.BASE_URL}export-supply.jpg`}
         highlights={[
           { label: 'Service', value: 'Sourcing & Coordination' },
@@ -74,16 +74,14 @@ export default function ExportSupply() {
 
       {/* Export services */}
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-10">
-        <p className="leaf-divider mb-3">Our Services</p>
+        <p className="leaf-divider mb-3">Potential coordination scope</p>
 
         <h2 className="mb-4 font-display text-3xl font-semibold text-forest-deep lg:text-4xl">
-          A coordinated export service.
+          Practical steps, agreed product by product.
         </h2>
 
         <p className="mb-10 max-w-3xl leading-relaxed text-ink/70">
-          From supplier coordination to shipment planning, we work to simplify
-          the India-side process for buyers seeking suitable products and
-          reliable communication.
+          The items below describe areas that may need coordination in a suitable transaction. They are not a promise that every service, route, certificate or delivery term is available for every product or order.
         </p>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -117,19 +115,16 @@ export default function ExportSupply() {
             </p>
 
             <h2 className="font-display text-3xl font-semibold leading-tight lg:text-4xl">
-              One point of contact. Clear shipment planning.
+              A clear scope before a shipment is promised.
             </h2>
 
             <p className="mt-5 leading-relaxed text-cream/75">
-              We aim to make international sourcing easier by coordinating
-              supplier communication, product requirements, logistics and
-              applicable shipment documentation. Scope, pricing, payment
-              terms and timelines are confirmed before an order is accepted.
+              We can assess supplier communication, product requirements, logistics and shipment-document needs for a proposed transaction. The seller of record, exporter, party responsible for each document, payment arrangements and logistics scope must be identified and agreed in writing before an order is accepted.
             </p>
           </div>
 
           <ul className="space-y-3">
-            {serviceCommitments.map((item) => (
+            {orderCheckpoints.map((item) => (
               <li
                 key={item}
                 className="flex items-start gap-3 rounded-xl border border-cream/10 bg-forest-dark/40 p-4 transition-colors hover:border-saffron/40"
@@ -197,6 +192,11 @@ export default function ExportSupply() {
         </p>
       </section>
 
+      <section className="mx-auto max-w-7xl px-5 pb-8 lg:px-10">
+        <div className="rounded-2xl border border-saffron/40 bg-saffron/10 p-5 text-sm leading-relaxed text-ink/75">
+          <strong className="text-forest-deep">Important for international buyers:</strong> This page describes enquiry-stage coordination. It is not confirmation that a specific product is export-ready, that Savita Global holds every required registration, or that a particular certificate or freight service is available. Export execution is considered only after applicable legal registrations, product eligibility, supplier documents, destination requirements and the written commercial arrangement are verified.
+        </div>
+      </section>
       <CTA />
     </>
   );

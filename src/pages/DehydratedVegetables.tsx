@@ -7,73 +7,64 @@ const items = [
     name: 'Red Onion Flakes',
     image: `${import.meta.env.BASE_URL}products/vegetables/red-onion-flakes.jpg`,
     imageAlt: 'Illustration of red onion flakes',
-    form: 'Illustrative: Kibbled 5–10 mm',
-    moisture: 'Indicative: ≤ 6%',
-    packing: 'Example: 10 / 25 kg carton',
+    form: 'Kibbled or flaked; cut-size range agreed by specification',
+    note: 'Confirm colour, aroma, moisture, water activity, foreign matter and microbiological criteria for the intended application.',
   },
   {
     name: 'Onion Powder',
     image: `${import.meta.env.BASE_URL}products/vegetables/onion-powder.jpg`,
     imageAlt: 'Illustration of onion powder',
-    form: 'Illustrative: Powder 80–100 mesh',
-    moisture: 'Indicative: ≤ 5%',
-    packing: 'Example: 25 kg PE-lined bag',
+    form: 'Powder; particle-size distribution or mesh to be agreed',
+    note: 'Discuss flow, caking, colour, aroma, carrier or additive declaration, and packing barrier.',
   },
   {
-    name: 'Dehydrated Cabbage',
-    image: `${import.meta.env.BASE_URL}products/vegetables/cabbage.jpg`,
-    imageAlt: 'Illustration of dehydrated cabbage',
-    form: 'Illustrative: Shredded 2–5 mm',
-    moisture: 'Indicative: ≤ 6%',
-    packing: 'Example: 25 kg carton',
+    name: 'Onion Granules',
+    image: `${import.meta.env.BASE_URL}products/vegetables/onion-granules.jpg`,
+    imageAlt: 'Illustration of onion granules',
+    form: 'Granulated; grade and fines percentage to be specified',
+    note: 'Confirm granule size, fines, colour, aroma, moisture and the buyer’s test requirements.',
   },
   {
     name: 'Tomato Powder',
     image: `${import.meta.env.BASE_URL}products/vegetables/tomato-powder.jpg`,
     imageAlt: 'Illustration of tomato powder',
-    form: 'Illustrative: Spray-dried powder',
-    moisture: 'Indicative: ≤ 4%',
-    packing: 'Example: 20 kg carton',
+    form: 'Powder; processing method and carrier status to be confirmed',
+    note: 'Specify colour, flavour, particle size, solubility or dispersibility and full ingredient declaration.',
   },
   {
     name: 'Tomato Flakes',
     image: `${import.meta.env.BASE_URL}products/vegetables/tomato-flakes.jpg`,
     imageAlt: 'Illustration of dehydrated tomato flakes',
-    form: 'Illustrative: Air-dried flakes',
-    moisture: 'Indicative: ≤ 6%',
-    packing: 'Example: 10 kg carton',
+    form: 'Flakes or pieces; cut size to be agreed',
+    note: 'Discuss piece size, colour, flavour, seeds/skin tolerance, moisture and rehydration behaviour.',
   },
   {
-    name: 'Dehydrated Spinach',
-    image: `${import.meta.env.BASE_URL}products/vegetables/Dehydrated Spinach.jpg`,
-    imageAlt: 'Illustration of dehydrated spinach',
-    form: 'Illustrative: Fine powder',
-    moisture: 'Indicative: ≤ 6%',
-    packing: 'Example: 20 kg carton',
+    name: 'Spinach Powder',
+    image: `${import.meta.env.BASE_URL}products/vegetables/spinach-powder.jpg`,
+    imageAlt: 'Illustration of spinach powder',
+    form: 'Leaf powder; particle size and colour target by enquiry',
+    note: 'Confirm ingredient identity, colour, aroma, particle size, microbial criteria and intended use.',
   },
   {
     name: 'Green Chilli Flakes',
     image: `${import.meta.env.BASE_URL}products/vegetables/green-chilli-flakes.jpg`,
     imageAlt: 'Illustration of green chilli flakes',
-    form: 'Illustrative: Crushed 3–5 mm',
-    moisture: 'Indicative: ≤ 8%',
-    packing: 'Example: 10 kg carton',
+    form: 'Crushed or flaked; cut range and heat profile by enquiry',
+    note: 'Specify variety or heat target, colour, seeds, foreign matter, particle size and packing.',
   },
   {
     name: 'Ginger Powder',
     image: `${import.meta.env.BASE_URL}products/vegetables/ginger-powder.jpg`,
     imageAlt: 'Illustration of ginger powder',
-    form: 'Illustrative: Powder, 60 mesh',
-    moisture: 'Indicative: ≤ 8%',
-    packing: 'Example: 25 kg bag',
+    form: 'Powder; mesh and flavour profile to be specified',
+    note: 'Discuss aroma, pungency, fibre, colour, moisture, microbiological criteria and storage.',
   },
   {
     name: 'Beetroot Powder',
     image: `${import.meta.env.BASE_URL}products/vegetables/beetroot-powder.jpg`,
     imageAlt: 'Illustration of beetroot powder',
-    form: 'Illustrative: Fine powder',
-    moisture: 'Indicative: ≤ 6%',
-    packing: 'Example: 20 kg carton',
+    form: 'Powder; particle size and colour target by enquiry',
+    note: 'Confirm colour, flavour, ingredient declaration, moisture, water activity and intended use.',
   },
 ];
 
@@ -111,23 +102,29 @@ return (
           </div>
 
           <p className="text-sm text-mute max-w-sm">
-            Explore product types and example specifications.
-            Final product forms, moisture limits, mesh sizes,
-            packaging and order quantities depend on the selected
-            supplier and confirmed product specification.
+            The cards below describe the product formats and technical questions a buyer may need to define. They are not finished technical specifications or a statement of stock.
           </p>
         </div>
 
         <CatalogGrid items={items} />
 
         <p className="mt-6 text-sm text-ink/65 leading-relaxed border border-forest/10 rounded-xl p-4">
-          <strong>Important:</strong> Product specifications and
-          packaging shown in this catalogue are illustrative only,
-          not confirmed stock or guaranteed supply specifications.
-          Availability, country of origin, test reports, minimum
-          order quantities and final specifications must be verified
-          with the supplier before quotation or order confirmation.
+          <strong>Before quotation:</strong> This is an enquiry catalogue, not a live inventory list. No numerical moisture limit, mesh size, packing format, country of origin, test result or minimum order is guaranteed here. Ask for a product-specific specification and current lot or sample details before comparing offers.
         </p>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-5 lg:px-10 pb-16">
+        <p className="leaf-divider mb-3">Choose the right onion format</p>
+        <h2 className="font-display text-3xl lg:text-4xl text-forest-deep font-semibold">Flakes, granules and powder serve different jobs.</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/70">The format should be selected around the recipe, dosing method and finished-food appearance. The descriptions below are general buying guidance; the actual particle range, performance and acceptance limits belong in the approved product specification.</p>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {[
+            { title: 'Flakes / kibbled', text: 'Visible pieces for soups, sauces, seasoning blends and prepared foods. Define cut-size range, proportion of fines, colour, aroma and rehydration behaviour.' },
+            { title: 'Granules', text: 'Smaller particles that can distribute more evenly than larger flakes while retaining some texture. Specify particle-size distribution, fines, flow and intended dosing method.' },
+            { title: 'Powder', text: 'A fine ingredient for dry mixes, seasonings and formulations. Define mesh or particle-size method, caking behaviour, flow, colour, flavour and any carrier or additive declaration.' },
+          ].map((item) => <article key={item.title} className="rounded-2xl border border-forest/10 bg-cream p-6"><h3 className="font-display text-xl font-semibold text-forest-deep">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-ink/70">{item.text}</p></article>)}
+        </div>
+        <div className="mt-6 rounded-2xl border border-saffron/40 bg-saffron/10 p-5 text-sm leading-relaxed text-ink/75"><strong className="text-forest-deep">Do not compare by moisture alone.</strong> A buyer may also need a water-activity value, microbiological criteria, foreign-matter limit, colour or sensory criteria, bulk density and a defined test method. Ask suppliers to state the result, method, date and lot reference for any test they provide.</div>
       </section>
 
       <section className="bg-cream-dark/40 py-16">
@@ -162,9 +159,7 @@ return (
             </ol>
 
             <p className="mt-5 text-xs text-ink/60 leading-relaxed">
-              Processing, testing, certification and logistics are
-              arranged according to the supplier, product, order
-              agreement and applicable requirements.
+              This is a proposed enquiry workflow, not a claim that Savita Global owns a processing line or laboratory. Any processing, testing, certification or logistics scope must be confirmed with the relevant supplier or service provider for the order.
             </p>
           </div>
 
