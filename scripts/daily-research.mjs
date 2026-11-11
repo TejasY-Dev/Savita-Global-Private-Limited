@@ -1,4 +1,4 @@
-﻿import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 
 const required = (name) => {
   const value = process.env[name]?.trim();
@@ -8,7 +8,8 @@ const required = (name) => {
 
 const SUPABASE_URL = required('SUPABASE_URL').replace(/\/+$/, '');
 const SUPABASE_SECRET_KEY = required('SUPABASE_SECRET_KEY');
-const ADMIN_EMAIL = required('DASHBOARD_ADMIN_EMAIL').toLowerCase();
+const SUPABASE_OWNER_ID = required('SUPABASE_OWNER_ID');
+if (!/^[0-9a-f]{8}-[0-9a-f-]{27}$/i.test(SUPABASE_OWNER_ID)) throw new Error('SUPABASE_OWNER_ID must be a valid UUID.');
 const TAVILY_API_KEY = required('TAVILY_API_KEY');
 
 const supabaseAdmin = createClient(
@@ -22,33 +23,6 @@ const supabaseAdmin = createClient(
     },
   }
 );
-
-async function resolveOwnerId() {
-  for (let page = 1; page <= 100; page++) {
-    const { data, error } = await supabaseAdmin.auth.admin.listUsers({
-      page,
-      perPage: 1000,
-    });
-
-    if (error) {
-      throw new Error(`Supabase owner lookup failed: ${error.message}`);
-    }
-
-    const users = data?.users || [];
-    const matches = users.filter(
-      (user) => user.email?.toLowerCase() === ADMIN_EMAIL
-    );
-
-    if (matches.length > 1) {
-      throw new Error('Multiple accounts matched the configured owner email.');
-    }
-
-    if (matches.length === 1) return matches[0].id;
-    if (users.length < 1000) break;
-  }
-
-  throw new Error('Dashboard owner account was not found in Supabase.');
-}
 
 const searches = [
   {
@@ -145,8 +119,8 @@ async function saveSources(rows) {
 async function main() {
   console.log('Savita Global daily research started.');
 
-  const ownerId = await resolveOwnerId();
-  console.log('Dashboard owner identified.');
+  const ownerId = SUPABASE_OWNER_ID;
+  console.log('Configured dashboard owner ID loaded.');
 
   const uniqueSources = new Map();
   let successfulSearches = 0;

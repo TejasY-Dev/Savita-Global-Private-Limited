@@ -1,4 +1,4 @@
-﻿name: Savita Global Daily Buyer Research
+name: Savita Global Daily Buyer Research
 
 on:
   schedule:
@@ -35,6 +35,6 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-          DASHBOARD_ADMIN_EMAIL: ${{ secrets.DASHBOARD_ADMIN_EMAIL }}
+          SUPABASE_OWNER_ID: ${{ secrets.SUPABASE_OWNER_ID }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: node scripts/daily-research.mjs
