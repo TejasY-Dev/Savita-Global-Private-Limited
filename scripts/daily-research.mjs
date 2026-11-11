@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js';
 
 const required = (name) => {
   const value = process.env[name]?.trim();
@@ -11,18 +10,6 @@ const SUPABASE_SECRET_KEY = required('SUPABASE_SECRET_KEY');
 const SUPABASE_OWNER_ID = required('SUPABASE_OWNER_ID');
 if (!/^[0-9a-f]{8}-[0-9a-f-]{27}$/i.test(SUPABASE_OWNER_ID)) throw new Error('SUPABASE_OWNER_ID must be a valid UUID.');
 const TAVILY_API_KEY = required('TAVILY_API_KEY');
-
-const supabaseAdmin = createClient(
-  SUPABASE_URL,
-  SUPABASE_SECRET_KEY,
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-      detectSessionInUrl: false,
-    },
-  }
-);
 
 const searches = [
   {
@@ -101,19 +88,29 @@ async function searchTavily(query) {
 async function saveSources(rows) {
   if (!rows.length) return 0;
 
-  const { data, error } = await supabaseAdmin
-    .from('ceo_ai_research_sources')
-    .upsert(rows, {
-      onConflict: 'owner_id,url',
-      ignoreDuplicates: true,
-    })
-    .select('id');
+  const endpoint =
+    `${SUPABASE_URL}/rest/v1/ceo_ai_research_sources?on_conflict=owner_id%2Curl`;
 
-  if (error) {
-    throw new Error(`Supabase save failed: ${error.message}`);
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_SECRET_KEY,
+      'Content-Type': 'application/json',
+      Prefer: 'resolution=ignore-duplicates,return=representation',
+    },
+    body: JSON.stringify(rows),
+    signal: AbortSignal.timeout(30000),
+  });
+
+  if (!response.ok) {
+    const detail = await response.text().catch(() => '');
+    throw new Error(
+      `Supabase save failed: HTTP ${response.status}. ${detail.slice(0, 400)}`
+    );
   }
 
-  return data?.length || 0;
+  const inserted = await response.json();
+  return Array.isArray(inserted) ? inserted.length : 0;
 }
 
 async function main() {
