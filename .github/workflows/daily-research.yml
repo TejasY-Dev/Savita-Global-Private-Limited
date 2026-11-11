@@ -1,0 +1,40 @@
+﻿name: Savita Global Daily Buyer Research
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+      timezone: 'Asia/Kolkata'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: savita-global-daily-research
+  cancel-in-progress: false
+
+jobs:
+  daily-research:
+    name: Collect and save buyer research
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run Savita Global research worker
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          DASHBOARD_ADMIN_EMAIL: ${{ secrets.DASHBOARD_ADMIN_EMAIL }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: node scripts/daily-research.mjs

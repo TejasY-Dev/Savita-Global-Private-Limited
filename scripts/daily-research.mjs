@@ -1,0 +1,210 @@
+﻿import { createClient } from '@supabase/supabase-js';
+
+const required = (name) => {
+  const value = process.env[name]?.trim();
+  if (!value) throw new Error(`Missing environment variable: ${name}`);
+  return value;
+};
+
+const SUPABASE_URL = required('SUPABASE_URL').replace(/\/+$/, '');
+const SUPABASE_SECRET_KEY = required('SUPABASE_SECRET_KEY');
+const ADMIN_EMAIL = required('DASHBOARD_ADMIN_EMAIL').toLowerCase();
+const TAVILY_API_KEY = required('TAVILY_API_KEY');
+
+const supabaseAdmin = createClient(
+  SUPABASE_URL,
+  SUPABASE_SECRET_KEY,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+      detectSessionInUrl: false,
+    },
+  }
+);
+
+async function resolveOwnerId() {
+  for (let page = 1; page <= 100; page++) {
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers({
+      page,
+      perPage: 1000,
+    });
+
+    if (error) {
+      throw new Error(`Supabase owner lookup failed: ${error.message}`);
+    }
+
+    const users = data?.users || [];
+    const matches = users.filter(
+      (user) => user.email?.toLowerCase() === ADMIN_EMAIL
+    );
+
+    if (matches.length > 1) {
+      throw new Error('Multiple accounts matched the configured owner email.');
+    }
+
+    if (matches.length === 1) return matches[0].id;
+    if (users.length < 1000) break;
+  }
+
+  throw new Error('Dashboard owner account was not found in Supabase.');
+}
+
+const searches = [
+  {
+    query: 'Bulk buyers, importers, distributors and procurement RFQs for dehydrated onion flakes, onion granules, onion powder and dehydrated garlic from India worldwide.',
+  },
+  {
+    query: 'Industrial food manufacturers and bulk importers sourcing dehydrated carrot, cabbage, tomato, beetroot, spinach and other vegetable flakes and powders.',
+  },
+  {
+    query: 'International importers, distributors and food manufacturers sourcing bulk dried mango, banana, pineapple, apple and other dehydrated fruit ingredients.',
+  },
+  {
+    query: 'Private label buyers, supermarket brands, wholesalers and distributors sourcing fruit snacks, vegetable crisps and value-added food snacks from India.',
+  },
+  {
+    query: 'Bulk food ingredient buyers, seasoning manufacturers, soup manufacturers, spice blenders and ready-meal producers sourcing dehydrated vegetables and powders.',
+  },
+  {
+    query: 'International importers, hospitality distributors and institutional procurement buyers sourcing Indian cotton terry towels, kitchen towels, table napkins and hotel linen.',
+  },
+];
+
+function cleanText(value, maxLength) {
+  return String(value ?? '')
+    .replace(/\u0000/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+}
+
+function normalizeUrl(value) {
+  try {
+    const parsed = new URL(value);
+
+    if (!['http:', 'https:'].includes(parsed.protocol)) return null;
+
+    parsed.hash = '';
+
+    for (const key of [...parsed.searchParams.keys()]) {
+      if (/^(utm_|gclid$|fbclid$|mc_cid$|mc_eid$)/i.test(key)) {
+        parsed.searchParams.delete(key);
+      }
+    }
+
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
+async function searchTavily(query) {
+  const response = await fetch('https://api.tavily.com/search', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${TAVILY_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    signal: AbortSignal.timeout(20000),
+    body: JSON.stringify({
+      query,
+      search_depth: 'basic',
+      max_results: 4,
+      include_answer: false,
+      include_raw_content: false,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Tavily search failed: HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+  return Array.isArray(data.results) ? data.results : [];
+}
+
+async function saveSources(rows) {
+  if (!rows.length) return 0;
+
+  const { data, error } = await supabaseAdmin
+    .from('ceo_ai_research_sources')
+    .upsert(rows, {
+      onConflict: 'owner_id,url',
+      ignoreDuplicates: true,
+    })
+    .select('id');
+
+  if (error) {
+    throw new Error(`Supabase save failed: ${error.message}`);
+  }
+
+  return data?.length || 0;
+}
+
+async function main() {
+  console.log('Savita Global daily research started.');
+
+  const ownerId = await resolveOwnerId();
+  console.log('Dashboard owner identified.');
+
+  const uniqueSources = new Map();
+  let successfulSearches = 0;
+
+  for (let index = 0; index < searches.length; index++) {
+    const query = searches[index].query;
+
+    try {
+      const results = await searchTavily(query);
+      successfulSearches++;
+
+      for (const result of results) {
+        const url = normalizeUrl(result.url);
+        if (!url || uniqueSources.has(url)) continue;
+
+        const domain = new URL(url).hostname.replace(/^www\./, '');
+
+        uniqueSources.set(url, {
+          owner_id: ownerId,
+          agent: 'buyer_intelligence',
+          query,
+          title: cleanText(result.title || domain, 240),
+          url,
+          domain: cleanText(domain, 160),
+          snippet: cleanText(result.content, 900) || null,
+          relevance_score:
+            result.score != null && Number.isFinite(Number(result.score))
+              ? Number(result.score)
+              : null,
+        });
+      }
+
+      console.log(
+        `Search ${index + 1}/${searches.length}: ${results.length} results.`
+      );
+    } catch (error) {
+      console.error(
+        `Search ${index + 1} failed:`,
+        error instanceof Error ? error.message : 'Unknown error'
+      );
+    }
+  }
+
+  if (successfulSearches === 0) {
+    throw new Error('All research searches failed. Nothing was saved.');
+  }
+
+  const rows = [...uniqueSources.values()];
+  const insertedCount = await saveSources(rows);
+
+  console.log('Daily research completed.');
+  console.log(`Successful searches: ${successfulSearches}`);
+  console.log(`Unique sources collected: ${rows.length}`);
+  console.log(`New sources inserted: ${insertedCount}`);
+  console.log('Existing URLs and verification statuses were preserved.');
+}
+
+main().catch((error) => {
+  console.error('Daily research worker failed:', error.message);
+  process.exitCode = 1;
+});
